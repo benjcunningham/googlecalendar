@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
-<img style="float: right;" src="icon.png">
+<img src="icon.png" align="right"/>
 
-**googlecalendar**: Google Calendar for R
-=========================================
+googlecalendar: Google Calendar for R
+=====================================
 
 **googlecalendar** makes Google Calendar easily accessible through R. The package offers a collection of functions for accessing and modifying calendars, events, and UI settings via Google's [Calendar API](https://developers.google.com/google-apps/calendar/). While not a verbatim port of available methods, the package aims to provide intuitive commands for interacting with the Calendar service.
 

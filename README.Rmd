@@ -4,9 +4,9 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
 
-<img style="float: right;" src="icon.png">
+<img src="icon.png" align="right"/>
 
-# **googlecalendar**: Google Calendar for R
+# googlecalendar: Google Calendar for R
 
 **googlecalendar** makes Google Calendar easily accessible through R.
 The package offers a collection of functions for accessing and modifying
