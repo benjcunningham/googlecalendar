@@ -1,0 +1,21 @@
+Package: googlecalendar
+Title: Google Calendar for R
+Version: 0.0.0.9000
+Description: Easily access and modify calendars, events, and UI settings
+    via the Google Calendar API.
+Authors@R:
+    person("Ben", "Cunningham", email = "benjamescunningham@gmail.com",
+           role = c("aut", "cre"))
+URL: https://github.com/benjcunningham/googlecalendar
+BugReports: https://github.com/benjcunningham/googlecalendar/issues
+License: MIT + file LICENSE
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Imports:
+    dplyr,
+    httr,
+    jsonlite,
+    methods,
+    stringr
+Suggests:
+    testthat

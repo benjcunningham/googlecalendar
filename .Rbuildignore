@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis\.yml$
+\.httr-oauth.*$
+^README
+man-roxygen
+.png$
