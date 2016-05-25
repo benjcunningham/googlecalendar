@@ -4,4 +4,4 @@
 \.httr-oauth.*$
 ^README
 man-roxygen
-.png$
+\.png$
