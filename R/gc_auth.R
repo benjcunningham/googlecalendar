@@ -75,6 +75,9 @@ gc_auth <- function(new_user = FALSE,
 #'   \code{.httr-oauth} file in the working directory.
 #' @template verbose
 #'
+#' @return Logical indicating whether a token was removed from the
+#'   internal credentialing environment.
+#'
 #' @export
 #'
 #' @examples
@@ -107,8 +110,11 @@ gc_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
   } else {
     if (verbose) {
       message("No Google Calendar API token to remove.")
+      return(invisible(FALSE))
     }
   }
+
+  invisible(TRUE)
 
 }
 

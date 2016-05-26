@@ -13,6 +13,10 @@ gc_deauth(clear_cache = TRUE, verbose = TRUE)
 \item{verbose}{Logical indicating whether to print informative
 messages.}
 }
+\value{
+Logical indicating whether a token was removed from the
+  internal credentialing environment.
+}
 \description{
 Deauthorizes this package to interact with your Google Calendars.
 }
