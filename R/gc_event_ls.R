@@ -4,7 +4,7 @@
 #' This function returns event information available via the Google
 #' Calendar API \code{Events} resource. Use requires authorization.
 #'
-#' A \code{googlecalendar_events} object will, in cases where a field is
+#' An \code{event_ls} object will, in cases where a field is
 #' non-\code{NULL}, contain the following information:
 #'
 #' \itemize{
@@ -130,12 +130,12 @@
 #'   request to the API.
 #' @template verbose
 #'
-#' @return A \code{googlecalendar_events} object (a custom class
-#'   wrapping \code{\link[dplyr]{tbl_df}}) with one row for each event
-#'   returned by the service.
+#' @return An \code{event_ls} object (a custom class wrapping
+#'   \code{\link[dplyr]{tbl_df}}) with one row for each event returned
+#'   by the service.
 #'
 #' @export
-gc_events <- function(x, ..., verbose = FALSE) {
+gc_event_ls <- function(x, ..., verbose = FALSE) {
 
   stopifnot(nrow(x) == 1, methods::is(x, "googlecalendar"))
 
@@ -174,14 +174,14 @@ gc_events <- function(x, ..., verbose = FALSE) {
     dplyr::select_(~ summary,
                    ~ start.dateTime:end.dateTime,
                    ~ everything()) %>%
-    structure(., class = c("googlecalendar_events", class(.)))
+    structure(., class = c("event_ls", class(.)))
 
   events_out
 
 }
 
 #' @export
-print.googlecalendar_events <- function(x, ...) {
+print.event_ls <- function(x, ...) {
   x %>%
     dplyr::mutate_each(dplyr::funs_(~ truncate_col(.))) %>%
     print(...)
