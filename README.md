@@ -54,15 +54,15 @@ Usage
 
 More to come soon...
 
-Function Overview
------------------
+Functions Overview
+------------------
 
 | Function           | Description                         | Return                                       |
 |:-------------------|:------------------------------------|:---------------------------------------------|
 | gc\_auth           | Authorize the package               | Token2.0, Token, R6                          |
 | gc\_deauth         | Deauthorize the package             | logical                                      |
 | gc\_ls             | List available calendars            | googlecalendar\_ls, tbl\_df, tbl, data.frame |
-| gc\_new            | Create a new calendar               | googlecalendar                               |
+| gc\_new            | Create a new calendar               | googlecalendar, list                         |
 | gc\_id             | Retrieve a calendar by ID           | googlecalendar, list                         |
 | gc\_summary        | Retrieve a calendar by title        | googlecalendar, list                         |
 | gc\_delete         | Delete a calendar                   | logical                                      |

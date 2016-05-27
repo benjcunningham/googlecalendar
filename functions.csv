@@ -2,7 +2,7 @@ Function,Description,Return
 gc_auth,Authorize the package,"Token2.0, Token, R6"
 gc_deauth,Deauthorize the package,logical
 gc_ls,List available calendars,"googlecalendar_ls, tbl_df, tbl, data.frame"
-gc_new,Create a new calendar,googlecalendar
+gc_new,Create a new calendar,"googlecalendar, list"
 gc_id,Retrieve a calendar by ID,"googlecalendar, list"
 gc_summary,Retrieve a calendar by title,"googlecalendar, list"
 gc_delete,Delete a calendar,logical

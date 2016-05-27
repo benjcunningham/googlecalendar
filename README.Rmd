@@ -89,7 +89,7 @@ gc_deauth(clear_cache = TRUE)
 
 More to come soon...
 
-## Function Overview
+## Functions Overview
 
 ```{r as.is = TRUE, echo = FALSE}
 ftbl <- read.csv("functions.csv", stringsAsFactors = F)
