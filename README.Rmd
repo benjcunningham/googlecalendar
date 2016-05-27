@@ -88,3 +88,10 @@ gc_deauth(clear_cache = TRUE)
 ## Usage
 
 More to come soon...
+
+## Function Overview
+
+```{r as.is = TRUE, echo = FALSE}
+ftbl <- read.csv("functions.csv", stringsAsFactors = F)
+knitr::kable(ftbl)
+```

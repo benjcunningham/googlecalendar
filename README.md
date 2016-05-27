@@ -53,3 +53,21 @@ Usage
 -----
 
 More to come soon...
+
+Function Overview
+-----------------
+
+| Function           | Description                         | Return                                       |
+|:-------------------|:------------------------------------|:---------------------------------------------|
+| gc\_auth           | Authorize the package               | Token2.0, Token, R6                          |
+| gc\_deauth         | Deauthorize the package             | logical                                      |
+| gc\_ls             | List available calendars            | googlecalendar\_ls, tbl\_df, tbl, data.frame |
+| gc\_new            | Create a new calendar               | googlecalendar                               |
+| gc\_id             | Retrieve a calendar by ID           | googlecalendar, list                         |
+| gc\_summary        | Retrieve a calendar by title        | googlecalendar, list                         |
+| gc\_delete         | Delete a calendar                   | logical                                      |
+| gc\_event\_ls      | List events scheduled on a calendar | event\_ls, tbl\_df, tbl, data.frame          |
+| gc\_event\_new     | Create a new event                  |                                              |
+| gc\_event\_id      | Retrieve an event by ID             |                                              |
+| gc\_event\_summary | Retrieve an event by title          |                                              |
+| gc\_event\_delete  | Delete an event                     |                                              |
