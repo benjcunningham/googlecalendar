@@ -19,7 +19,7 @@
 #' @export
 gc_delete <- function(x, verbose = TRUE) {
 
-  stopifnot(nrow(x) == 1, methods::is(x, "googlecalendar"))
+  stopifnot(methods::is(x, "googlecalendar"))
 
   url <-
     file.path(.cred$base_url_v3, "calendars", x$id) %>%

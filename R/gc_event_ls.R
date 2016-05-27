@@ -137,7 +137,7 @@
 #' @export
 gc_event_ls <- function(x, ..., verbose = FALSE) {
 
-  stopifnot(nrow(x) == 1, methods::is(x, "googlecalendar"))
+  stopifnot(methods::is(x, "googlecalendar"))
 
   fields <- c("anyoneCanAddSelf", "attendeesOmitted", "colorId",
               "created", "creator", "description", "end",
