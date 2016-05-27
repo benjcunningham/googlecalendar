@@ -9,6 +9,7 @@
 #' @docType package
 #' @name googlecalendar
 #' @importFrom dplyr %>%
+#' @importFrom purrr %||%
 NULL
 
 # Quiets R CMD check NOTEs for `.` in pipelines

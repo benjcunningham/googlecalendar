@@ -16,6 +16,7 @@ Imports:
     httr,
     jsonlite,
     methods,
+    purrr,
     stringr
 Suggests:
     testthat
