@@ -91,7 +91,18 @@ gc_summary <- function(x, fixed = FALSE, ..., verbose = TRUE) {
 #' @keywords internal
 gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
 
-  cals <- gc_ls()
+  url <-
+    file.path(.cred$base_url_v3, "users", "me", "calendarList") %>%
+    httr::modify_url(query = list(
+      fields = "items",
+      key = getOption("googlecalendar.client_key")
+    ))
+
+  resp <-
+    httr::GET(url, gc_token()) %>%
+    httr::stop_for_status()
+
+  cals <- json_content(resp, flatten = TRUE)$items
 
   i <- grep(x, cals[[lvar]], fixed = fixed, ...)
 
@@ -107,17 +118,25 @@ gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
       message()
   }
 
-  look_out <-
-    cals[i, ] %>%
-    structure(., class = c("googlecalendar", class(.)))
-
-  look_out
+  as.googlecalendar(cals[i, ])
 
 }
 
 #' @export
 print.googlecalendar <- function(x, ...) {
-  x %>%
-    dplyr::mutate_each(dplyr::funs_(~ truncate_col(.))) %>%
-    print()
+
+  paste(
+    "Calendar ID: %s",
+    "",
+    "      Title: %s",
+    "Description: %s",
+    "   Location: %s",
+    "  Time Zone: %s",
+    "Permissions: %s",
+    "       ETag: %s",
+    sep = "\n") %>%
+    sprintf(x$id, x$summary, x$description, x$location, x$timeZone,
+            x$accessRole, x$etag) %>%
+    cat()
+
 }
