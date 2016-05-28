@@ -66,3 +66,21 @@ as.googlecalendar.data.frame <- function(x) {
 
 }
 
+#' @export
+print.googlecalendar <- function(x, ...) {
+
+  paste(
+    "Calendar ID: %s",
+    "",
+    "      Title: %s",
+    "Description: %s",
+    "   Location: %s",
+    "  Time Zone: %s",
+    "Permissions: %s",
+    "       ETag: %s",
+    sep = "\n") %>%
+    sprintf(x$id, x$summary, x$description, x$location, x$timeZone,
+            x$accessRole, x$etag) %>%
+    cat()
+
+}

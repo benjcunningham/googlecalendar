@@ -86,22 +86,3 @@ gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
   as.googlecalendar(cals[i, ])
 
 }
-
-#' @export
-print.googlecalendar <- function(x, ...) {
-
-  paste(
-    "Calendar ID: %s",
-    "",
-    "      Title: %s",
-    "Description: %s",
-    "   Location: %s",
-    "  Time Zone: %s",
-    "Permissions: %s",
-    "       ETag: %s",
-    sep = "\n") %>%
-    sprintf(x$id, x$summary, x$description, x$location, x$timeZone,
-            x$accessRole, x$etag) %>%
-    cat()
-
-}
