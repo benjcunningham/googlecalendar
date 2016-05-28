@@ -48,10 +48,6 @@ gc_ls <- function(pattern = NULL, ..., verbose = TRUE) {
 
   ls_raw <- json_content(resp)$items
 
-  # ls_out <-
-  #   dplyr::as.tbl(ls_raw) %>%
-  #   dplyr::select_(~ summary, ~ everything())
-
   if (!is.null(pattern)) {
 
     i <- grep(pattern, ls_raw$summary, ...)
