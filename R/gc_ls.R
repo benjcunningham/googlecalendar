@@ -48,13 +48,13 @@ gc_ls <- function(pattern = NULL, ..., verbose = TRUE) {
 
   ls_raw <- json_content(resp)$items
 
-  ls_out <-
-    dplyr::as.tbl(ls_raw) %>%
-    dplyr::select_(~ summary, ~ everything())
+  # ls_out <-
+  #   dplyr::as.tbl(ls_raw) %>%
+  #   dplyr::select_(~ summary, ~ everything())
 
   if (!is.null(pattern)) {
 
-    i <- grep(pattern, ls_out$summary, ...)
+    i <- grep(pattern, ls_raw$summary, ...)
 
     if (length(i) == 0) {
       if (verbose) {
@@ -63,20 +63,10 @@ gc_ls <- function(pattern = NULL, ..., verbose = TRUE) {
       return(invisible(NULL))
     }
 
-    ls_out <- ls_out[i, ]
+    ls_raw <- ls_raw[i, ]
 
   }
 
-  ls_out <-
-    structure(ls_out, class = c("googlecalendar_ls", class(ls_out)))
+  as.googlecalendar_ls(ls_raw)
 
-  ls_out
-
-}
-
-#' @export
-print.googlecalendar_ls <- function(x, ...) {
-  x %>%
-    dplyr::mutate_each(dplyr::funs_(~ truncate_col(.))) %>%
-    print()
 }

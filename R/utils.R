@@ -12,3 +12,10 @@ truncate_col <- function(x, n = 20) {
          paste0(stringr::str_sub(x, end = n - 1), "\u2026"),
          stringr::str_sub(x, end = n))
 }
+
+# Does this already exist somewhere?
+# Am I justforgetting the better way to do this?
+`%NA%` <- function(x, y) {
+  x[is.na(x)] <- y
+  x
+}
