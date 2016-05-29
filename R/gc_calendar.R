@@ -72,10 +72,13 @@ gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
   i <- grep(x, cals[[lvar]], fixed = fixed, ...)
 
   if (length(i) != 1) {
-    sprintf(paste("Found %s calendars where `%s` matches",
-                  "\"%s\".\nMust match exactly one calendar."),
-            length(i), lvar, x) %>%
-      stop(call. = FALSE)
+    if (verbose) {
+      sprintf(paste0("Found %s calendars where `%s` matches \"%s\".\n",
+                     "Must match exactly one."),
+              length(i), lvar, x) %>%
+        message()
+    }
+    return(invisible(NULL))
   }
 
   if (verbose) {
