@@ -65,12 +65,15 @@ gc_new <- function(summary, ..., verbose = TRUE) {
         message()
     }
   } else {
-    sprintf(paste("Could not confirm that \"%s\" has been created.",
-                  "\nThe calendar will not be returned, but you can",
-                  "retry using `gc_summary` \nor verify the POST using",
-                  "`gc_ls` or the Google Calendar browser UI."),
-            summary) %>%
-      stop(call. = FALSE)
+    if (verbose) {
+      sprintf(paste0("Could not confirm that \"%s\" was created.\n",
+                    "The calendar will not be returned, but you can ",
+                    "verify the POST using `gc_summary`, `gc_ls`, or\n",
+                    "the Google Calendar browser UI."),
+              summary) %>%
+        message()
+    }
+    return(invisible(NULL))
   }
 
   invisible(cal_out)
