@@ -1,11 +1,21 @@
-gc_event_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
+gc_event_query <- function(x, ..., verbose = TRUE) {
 
-  url <-
-    file.path(.cred$base_url_v3, "users", "me", "calendarList") %>%
-    httr::modify_url(query = list(
-      fields = "items",
-      key = getOption("googlecalendar.client_key")
-    ))
+  stopifnot(methods::is(x, "googlecalendar"))
+
+  ls <- gc_event_ls(x, ..., verbose = FALSE)
+
+  if (is.null(ls) || nrow(ls) != 1) {
+    if (verbose) {
+      matches <- ifelse(!is.null(ls), nrow(ls), 0)
+      sprintf(paste("Found %s events matching the query.",
+                    "Must match exactly one."),
+              matches) %>%
+        message()
+    }
+    return(invisible(NULL))
+  }
+
+  gc_event_id(x, ls$id, verbose = verbose)
 
 }
 
