@@ -37,13 +37,10 @@
 #' @export
 gc_new <- function(summary, ..., verbose = TRUE) {
 
-  fields <- c("description", "etag", "id", "location", "summary",
-              "timeZone")
-
   url <-
     file.path(.cred$base_url_v3, "calendars") %>%
     httr::modify_url(query = list(
-      fields = paste(fields, collapse = ","),
+      fields = "id",
       key = getOption("googlecalendar.client_key")
     ))
 
@@ -52,11 +49,6 @@ gc_new <- function(summary, ..., verbose = TRUE) {
                body = c(list(summary = summary), list(...))) %>%
     httr::stop_for_status()
 
-  # This ignores the useful functionality that the API returns the newly
-  # created calendar object with its response. Barring request timeouts,
-  # this should work too, (and, in fact, returns a "fuller" object).
-  # Nevertheless, it's worth continuing to watch whether timeouts are a
-  # big enough problem to warrant a change.
   cal_out <- gc_id(json_content(resp)$id, verbose = FALSE)
 
   if (methods::is(cal_out, "googlecalendar")) {
