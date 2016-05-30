@@ -85,6 +85,7 @@ gc_event_id <- function(x, id, verbose = TRUE) {
     httr::stop_for_status()
 
   event <- json_content(resp, flatten = TRUE)
+  event$cid <- x$id
 
   as.event(event)
 

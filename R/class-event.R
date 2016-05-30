@@ -2,6 +2,7 @@ event <- function() {
 
   structure(list(
     kind = "calendar#event",
+    cid = character(),
     etag = character(),
     id = character(),
     status = character(),
@@ -104,6 +105,7 @@ as.event.list <- function(x) {
 
   ev <- event()
 
+  ev$cid <- x$cid
   ev$etag <- x$etag
   ev$id <- x$id
   ev$status <- x$status %||% "confirmed"
