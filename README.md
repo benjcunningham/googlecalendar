@@ -67,7 +67,7 @@ Functions Overview
 | gc\_summary       | Retrieve a calendar by title        | googlecalendar, list                         |
 | gc\_delete        | Delete a calendar                   | logical                                      |
 | gc\_event\_ls     | List events scheduled on a calendar | event\_ls, tbl\_df, tbl, data.frame          |
-| gc\_event\_new    | Create a new event                  |                                              |
+| gc\_event\_new    | Create a new event                  | event, list                                  |
 | gc\_event\_id     | Retrieve an event by ID             | event, list                                  |
 | gc\_event\_query  | Retrieve an event by expanded query | event, list                                  |
-| gc\_event\_delete | Delete an event                     |                                              |
+| gc\_event\_delete | Delete an event                     | logical                                      |
