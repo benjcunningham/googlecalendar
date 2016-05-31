@@ -6,3 +6,4 @@
 man-roxygen
 \.png$
 functions.csv
+^tests/testthat/googlecalendar_token\.rds\.enc$
