@@ -1,6 +1,7 @@
 context("Authentication is setup for testing")
 
 test_that("No token is registered", {
+  expect_null(.cred$token)
   expect_false(token_available())
 })
 
@@ -13,4 +14,6 @@ test_that("The token is legitimate", {
 
 test_that("The token has been deregistered", {
   expect_true(gc_deauth())
+  expect_null(.cred$token)
+  expect_false(token_available())
 })
