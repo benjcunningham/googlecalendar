@@ -5,9 +5,11 @@ gc_ls,List available calendars,"googlecalendar_ls, tbl_df, tbl, data.frame"
 gc_new,Create a new calendar,"googlecalendar, list"
 gc_id,Retrieve a calendar by ID,"googlecalendar, list"
 gc_summary,Retrieve a calendar by title,"googlecalendar, list"
+gc_edit,Edit metadata for a calendar,"googlecalendar, list"
 gc_delete,Delete a calendar,logical
 gc_event_ls,List events scheduled on a calendar,"event_ls, tbl_df, tbl, data.frame"
 gc_event_new,Create a new event,"event, list"
 gc_event_id,Retrieve an event by ID,"event, list"
 gc_event_query,Retrieve an event by expanded query,"event, list"
+gc_event_edit,Edit metadata for an event,""
 gc_event_delete,Delete an event,logical
