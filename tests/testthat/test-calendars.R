@@ -16,7 +16,7 @@ test_that("The new calendar can be fetched", {
   expect_identical(refetch, cal)
 })
 
-status <- gc_delete(cal)
+status <- gc_delete(cal, verbose = FALSE)
 test_that("Calendar deletion works", {
   expect_true(status)
 })
