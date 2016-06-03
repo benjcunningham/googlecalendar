@@ -1,0 +1,8 @@
+.Rproj
+.Rproj.user/
+.Rhistory
+.Rprofile
+.httr-oauth
+googlecalendar.Rproj
+.Rproj.user
+googlecalendar_token.rds
