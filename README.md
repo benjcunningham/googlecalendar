@@ -52,7 +52,110 @@ gc_deauth(clear_cache = TRUE)
 Usage
 -----
 
-More to come soon...
+*If you haven't already, make sure to read the section above on the basics of setting up the package. Recall that to get started you ought to have stored your newly-registered Google application client credentials in your `.Rprofile`.*
+
+Let's just jump right in and create a new calendar for demonstrating some core functionality. No need to worry about authenticating ahead of time — `gc_new()` will take care of redirecting you to a browser if necessary.
+
+``` r
+library(googlecalendar)
+cal <- gc_new("useR Meetups", location = "University of Iowa")
+```
+
+    ## Successfully created calendar: "useR Meetups"
+
+And here is what that new calendar looks like, saved as a `googlecalendar` object:
+
+    ## Calendar ID: ecng334gan2bgtrleid9r2tfl0@group.calendar.google.com
+    ## 
+    ##       Title: useR Meetups
+    ## Description: NA
+    ##    Location: University of Iowa
+    ##   Time Zone: UTC
+    ## Permissions: owner
+    ##        ETag: "1465166679530000"
+
+Don't worry if that doesn't look like much. The `print()` dispatch for this object class intentionally hides a lot of non-essential information. To see what lies beneath the surface, we can use `str(cal)`.
+
+    ## List of 18
+    ##  $ kind                : chr "calendar#calendarListEntry"
+    ##  $ etag                : chr "\"1465166679530000\""
+    ##  $ id                  : chr "ecng334gan2bgtrleid9r2tfl0@group.calendar.google.com"
+    ##  $ summary             : chr "useR Meetups"
+    ##  $ description         : chr NA
+    ##  $ location            : chr "University of Iowa"
+    ##  $ timeZone            : chr "UTC"
+    ##  $ summaryOverride     : chr NA
+    ##  $ colorId             : chr "15"
+    ##  $ backgroundColor     : chr "#9fc6e7"
+    ##  $ foregroundColor     : chr "#000000"
+    ##  $ hidden              : logi FALSE
+    ##  $ selected            : logi TRUE
+    ##  $ accessRole          : chr "owner"
+    ##  $ defaultReminders    :List of 2
+    ##   ..$ method : chr NA
+    ##   ..$ minutes: int NA
+    ##  $ notificationSettings:List of 1
+    ##   ..$ notifications:List of 2
+    ##   .. ..$ type  : chr NA
+    ##   .. ..$ method: chr NA
+    ##  $ primary             : logi NA
+    ##  $ deleted             : logi FALSE
+    ##  - attr(*, "class")= chr [1:2] "googlecalendar" "list"
+
+While not perfect, googlecalendar attempts to faithfully represent objects according to the structure of their originating Google Calendar API resource. Generally, properties are named and typed identically to how they are returned by the service.
+
+Taking a closer look at `cal`, it looks like we forgot to pass along a few useful properties in our original creation method. We can add these now using:
+
+``` r
+cal <- gc_edit(
+  cal,
+  description = "Iowa City's useR Group",
+  timeZone = "America/Chicago",
+  colorId = "20"
+)
+```
+
+    ## Successfully edited calendar: "useR Meetups"
+
+For good measure, let's convince ourselves that the changes were made and returned:
+
+    ## List of 18
+    ##  $ kind                : chr "calendar#calendarListEntry"
+    ##  $ etag                : chr "\"1465166680757000\""
+    ##  $ id                  : chr "ecng334gan2bgtrleid9r2tfl0@group.calendar.google.com"
+    ##  $ summary             : chr "useR Meetups"
+    ##  $ description         : chr "Iowa City's useR Group"
+    ##  $ location            : chr "University of Iowa"
+    ##  $ timeZone            : chr "America/Chicago"
+    ##  $ summaryOverride     : chr NA
+    ##  $ colorId             : chr "20"
+    ##  $ backgroundColor     : chr "#cabdbf"
+    ##  $ foregroundColor     : chr "#000000"
+    ##  $ hidden              : logi FALSE
+    ##  $ selected            : logi TRUE
+    ##  $ accessRole          : chr "owner"
+    ##  $ defaultReminders    :List of 2
+    ##   ..$ method : chr NA
+    ##   ..$ minutes: int NA
+    ##  $ notificationSettings:List of 1
+    ##   ..$ notifications:List of 2
+    ##   .. ..$ type  : chr NA
+    ##   .. ..$ method: chr NA
+    ##  $ primary             : logi NA
+    ##  $ deleted             : logi FALSE
+    ##  - attr(*, "class")= chr [1:2] "googlecalendar" "list"
+
+Like all functions in the package, `gc_edit()` attempts to return a useful object (in this case the updated calendar) that can be piped into another function. Accordingly, we overwrite `cal` so that we keep the current version of the calendar in our environment. We'll cover more on chaining package functions later.
+
+Finally, we can go ahead and delete our demonstration calendar:
+
+``` r
+gc_delete(cal)
+```
+
+    ## Calendar "useR Meetups" was successfully deleted.
+
+*More to come soon (and eventually be dumped in a vignette)...*
 
 Functions Overview
 ------------------

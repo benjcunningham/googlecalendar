@@ -87,7 +87,75 @@ gc_deauth(clear_cache = TRUE)
 
 ## Usage
 
-More to come soon...
+_If you haven't already, make sure to read the section above on the
+basics of setting up the package. Recall that to get started you ought
+to have stored your newly-registered Google application client
+credentials in your `.Rprofile`._
+
+Let's just jump right in and create a new calendar for demonstrating
+some core functionality. No need to worry about authenticating ahead of
+time &mdash; `gc_new()` will take care of redirecting you to a browser
+if necessary.
+
+```{r}
+library(googlecalendar)
+cal <- gc_new("useR Meetups", location = "University of Iowa")
+```
+
+And here is what that new calendar looks like, saved as a
+`googlecalendar` object:
+
+```{r echo = FALSE}
+print(cal)
+```
+
+Don't worry if that doesn't look like much. The `print()` dispatch for
+this object class intentionally hides a lot of non-essential
+information. To see what lies beneath the surface, we can use
+`str(cal)`.
+
+```{r echo = FALSE}
+str(cal)
+```
+
+While not perfect, googlecalendar attempts to faithfully represent
+objects according to the structure of their originating Google Calendar
+API resource. Generally, properties are named and typed identically to
+how they are returned by the service.
+
+Taking a closer look at `cal`, it looks like we forgot to pass along a
+few useful properties in our original creation method. We can add these
+now using:
+
+```{r}
+cal <- gc_edit(
+  cal,
+  description = "Iowa City's useR Group",
+  timeZone = "America/Chicago",
+  colorId = "20"
+)
+```
+
+For good measure, let's convince ourselves that the changes were made
+and returned:
+
+```{r echo = FALSE}
+str(cal)
+```
+
+Like all functions in the package, `gc_edit()` attempts to return a
+useful object (in this case the updated calendar) that can be piped into
+another function. Accordingly, we overwrite `cal` so that we keep the
+current version of the calendar in our environment. We'll cover more
+on chaining package functions later.
+
+Finally, we can go ahead and delete our demonstration calendar:
+
+```{r}
+gc_delete(cal)
+```
+
+_More to come soon (and eventually be dumped in a vignette)..._
 
 ## Functions Overview
 
