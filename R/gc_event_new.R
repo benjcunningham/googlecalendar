@@ -45,7 +45,8 @@
 gc_event_new <- function(x, start, end, ..., sendNotifications = FALSE,
                          verbose = TRUE) {
 
-  stopifnot(is.list(start), is.list(end))
+  stopifnot(methods::is(x, "googlecalendar"),
+            is.list(start), is.list(end))
 
   url <-
     file.path(.cred$base_url_v3, "calendars", x$id, "events") %>%
