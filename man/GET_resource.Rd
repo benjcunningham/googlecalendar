@@ -7,12 +7,12 @@
 GET_resource(path, fields = NULL)
 }
 \arguments{
-\item{path}{Path of the HTTP request}
+\item{path}{Path of the HTTP request.}
 
 \item{fields}{Fields to be included in the response, as a character
 vector.}
 
-\item{\dots}{Additional parameters to be passed to \code{build_url},}
+\item{\dots}{Additional parameters to be passed to \code{build_url}.}
 }
 \value{
 If request was successful, the API response. Otherwise, an
