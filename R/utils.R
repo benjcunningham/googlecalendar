@@ -1,4 +1,4 @@
-build_url <- function(path, fields, base = .cred$base_url_v3) {
+build_url <- function(path, fields = NULL, base = .cred$base_url_v3) {
 
   file.path(base, path) %>%
     httr::modify_url(query = list(
