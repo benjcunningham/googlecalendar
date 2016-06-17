@@ -1,3 +1,13 @@
+build_url <- function(path, fields, base = .cred$base_url_v3) {
+
+  file.path(base, path) %>%
+    httr::modify_url(query = list(
+      fields = fields,
+      key = getOption("googlecalendar.client_key")
+    ))
+
+}
+
 itemize_fields <- function(x) {
   paste0("items(", paste(x, collapse = ","), ")")
 }

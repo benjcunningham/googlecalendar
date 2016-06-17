@@ -39,7 +39,6 @@
 #' @export
 gc_id <- function(x, verbose = TRUE) {
 
-  stopifnot(length(x) == 1, is.character(x))
   gc_lookup(x, "id", fixed = TRUE, verbose = verbose)
 
 }
@@ -48,13 +47,14 @@ gc_id <- function(x, verbose = TRUE) {
 #' @export
 gc_summary <- function(x, fixed = FALSE, ..., verbose = TRUE) {
 
-  stopifnot(length(x) == 1, is.character(x))
   gc_lookup(x, "summary", fixed = fixed, ..., verbose = verbose)
 
 }
 
 #' @keywords internal
 gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
+
+  stopifnot(length(x) == 1, is.character(x))
 
   url <-
     file.path(.cred$base_url_v3, "users", "me", "calendarList") %>%

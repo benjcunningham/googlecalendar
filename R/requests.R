@@ -1,12 +1,7 @@
 #' @keywords internal
 update_resource <- function(path, dots) {
 
-  url <-
-    file.path(.cred$base_url_v3, path) %>%
-    httr::modify_url(query = list(
-      fields = "id",
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url(path, fields = "id")
 
   resp <-
     httr::PATCH(url, gc_token(), encode = "json",
