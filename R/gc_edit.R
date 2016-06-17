@@ -48,19 +48,20 @@ gc_edit <- function(x, ..., verbose = TRUE) {
   cls_dots <- dots[names(dots) %in% cls_fields]
 
   if (length(cal_dots) > 0) {
-    update_resource(file.path("calendars", x$id), cal_dots)
+    path <- file.path("calendars", x$id)
+    PATCH_resource(path, body = cal_dots)
   }
 
   if (length(cls_dots) > 0) {
-    update_resource(file.path("users/me/calendarList", x$id), cls_dots)
+    path <- file.path("users/me/calendarList", x$id)
+    PATCH_resource(path, body = cls_dots)
   }
 
   cal_out <- gc_id(x$id, verbose = FALSE)
 
   if (identical(cal_out[names(dots)], dots)) {
     if (verbose) {
-      sprintf("Successfully edited calendar: \"%s\"",
-              dots$summary %||% x$summary) %>%
+      sprintf("Successfully edited calendar: \"%s\"", x$summary) %>%
         message()
     }
   } else {

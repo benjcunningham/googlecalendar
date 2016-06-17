@@ -1,14 +1,11 @@
 #' @keywords internal
-update_resource <- function(path, dots) {
+PATCH_resource <- function(path, body) {
 
   url <- build_url(path, fields = "id")
 
-  resp <-
-    httr::PATCH(url, gc_token(), encode = "json",
-                body = dots) %>%
-    httr::stop_for_status()
-
-  return(invisible(NULL))
+  httr::PATCH(url, gc_token(), encode = "json", body = body) %>%
+    httr::stop_for_status() %>%
+    invisible()
 
 }
 
