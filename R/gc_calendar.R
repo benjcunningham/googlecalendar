@@ -56,11 +56,7 @@ gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
 
   stopifnot(length(x) == 1, is.character(x))
 
-  url <- build_url(path = "users/me/calendarList", fields = "items")
-
-  resp <-
-    httr::GET(url, gc_token()) %>%
-    httr::stop_for_status()
+  resp <- GET_resource("users/me/calendarList", fields = "items")
 
   cals <- json_content(resp, flatten = TRUE)$items
 

@@ -35,12 +35,8 @@ gc_event_ls <- function(x, ..., verbose = FALSE) {
               "source", "start", "status", "summary", "transparency",
               "updated", "visibility")
 
-  url <- build_url(file.path("calendars", x$id, "events"),
-                   fields = itemize_fields(fields))
-
-  resp <-
-    httr::GET(url, gc_token()) %>%
-    httr::stop_for_status()
+  path <- file.path("calendars", x$id, "events")
+  resp <- GET_resource(path, fields = itemize_fields(fields))
 
   ls_raw <- json_content(resp, flatten = TRUE)$items
 

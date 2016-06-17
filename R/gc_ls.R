@@ -35,12 +35,8 @@ gc_ls <- function(pattern = NULL, ..., verbose = TRUE) {
               "location", "primary", "selected", "summary",
               "summaryOverride", "timeZone")
 
-  url <- build_url("users/me/calendarList",
-                   fields = itemize_fields(fields))
-
-  resp <-
-    httr::GET(url, gc_token()) %>%
-    httr::stop_for_status()
+  resp <- GET_resource("users/me/calendarList",
+                       fields = itemize_fields(fields))
 
   ls_raw <- json_content(resp)$items
 

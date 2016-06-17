@@ -74,11 +74,8 @@ gc_event_id <- function(x, id, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  url <- build_url(file.path("calendars", x$id, "events", id))
-
-  resp <-
-    httr::GET(url, gc_token()) %>%
-    httr::stop_for_status()
+  path <- file.path("calendars", x$id, "events", id)
+  resp <- GET_resource(path)
 
   event <- json_content(resp, flatten = TRUE)
   event$cid <- x$id
