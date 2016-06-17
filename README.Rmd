@@ -8,6 +8,8 @@ output: github_document
 
 # googlecalendar: Google Calendar for R
 
+[![Build Status](https://travis-ci.org/benjcunningham/googlecalendar.svg?branch=master)](https://travis-ci.org/benjcunningham/googlecalendar)
+
 **googlecalendar** makes Google Calendar easily accessible through R.
 The package offers a collection of functions for accessing and modifying
 calendars, events, and UI settings via Google's
