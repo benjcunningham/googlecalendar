@@ -56,12 +56,7 @@ gc_lookup <- function(x, lvar, fixed = FALSE, ..., verbose = TRUE) {
 
   stopifnot(length(x) == 1, is.character(x))
 
-  url <-
-    file.path(.cred$base_url_v3, "users", "me", "calendarList") %>%
-    httr::modify_url(query = list(
-      fields = "items",
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url(path = "users/me/calendarList", fields = "items")
 
   resp <-
     httr::GET(url, gc_token()) %>%

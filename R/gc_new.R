@@ -37,12 +37,7 @@
 #' @export
 gc_new <- function(summary, ..., verbose = TRUE) {
 
-  url <-
-    file.path(.cred$base_url_v3, "calendars") %>%
-    httr::modify_url(query = list(
-      fields = "id",
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url("calendars", fields = "id")
 
   resp <-
     httr::POST(url, gc_token(), encode = "json",

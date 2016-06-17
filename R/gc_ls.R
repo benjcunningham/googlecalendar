@@ -35,12 +35,8 @@ gc_ls <- function(pattern = NULL, ..., verbose = TRUE) {
               "location", "primary", "selected", "summary",
               "summaryOverride", "timeZone")
 
-  url <-
-    file.path(.cred$base_url_v3, "users", "me", "calendarList") %>%
-    httr::modify_url(query = list(
-      fields = itemize_fields(fields),
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url("users/me/calendarList",
+                   fields = itemize_fields(fields))
 
   resp <-
     httr::GET(url, gc_token()) %>%

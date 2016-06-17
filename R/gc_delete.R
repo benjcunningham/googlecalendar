@@ -21,11 +21,7 @@ gc_delete <- function(x, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  url <-
-    file.path(.cred$base_url_v3, "calendars", x$id) %>%
-    httr::modify_url(query = list(
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url(file.path("calendars", x$id), fields = NULL)
 
   resp <-
     httr::DELETE(url, gc_token()) %>%

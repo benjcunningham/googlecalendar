@@ -74,11 +74,8 @@ gc_event_id <- function(x, id, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  url <-
-    file.path(.cred$base_url_v3, "calendars", x$id, "events", id) %>%
-    httr::modify_url(query = list(
-      key = getOption("googlecalendar.client_key")
-    ))
+  url <- build_url(file.path("calendars", x$id, "events", id),
+                   fields = NULL)
 
   resp <-
     httr::GET(url, gc_token()) %>%
