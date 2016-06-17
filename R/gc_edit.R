@@ -48,11 +48,11 @@ gc_edit <- function(x, ..., verbose = TRUE) {
   cls_dots <- dots[names(dots) %in% cls_fields]
 
   if (length(cal_dots) > 0) {
-    update_resource(x, path = "calendars", cal_dots)
+    update_resource(file.path("calendars", x$id), cal_dots)
   }
 
   if (length(cls_dots) > 0) {
-    update_resource(x, path = "users/me/calendarList", cls_dots)
+    update_resource(file.path("users/me/calendarList", x$id), cls_dots)
   }
 
   cal_out <- gc_id(x$id, verbose = FALSE)
@@ -74,24 +74,5 @@ gc_edit <- function(x, ..., verbose = TRUE) {
   }
 
   invisible(cal_out)
-
-}
-
-#' @keywords internal
-update_resource <- function(x, path, dots) {
-
-  url <-
-    file.path(.cred$base_url_v3, path, x$id) %>%
-    httr::modify_url(query = list(
-      fields = "id",
-      key = getOption("googlecalendar.client_key")
-    ))
-
-  resp <-
-    httr::PATCH(url, gc_token(), encode = "json",
-                body = dots) %>%
-    httr::stop_for_status()
-
-  return(invisible(NULL))
 
 }
