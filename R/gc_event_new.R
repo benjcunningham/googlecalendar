@@ -48,18 +48,10 @@ gc_event_new <- function(x, start, end, ..., sendNotifications = FALSE,
   stopifnot(methods::is(x, "googlecalendar"),
             is.list(start), is.list(end))
 
-  url <-
-    file.path(.cred$base_url_v3, "calendars", x$id, "events") %>%
-    httr::modify_url(query = list(
-      sendNotifications = sendNotifications,
-      fields = "id",
-      key = getOption("googlecalendar.client_key")
-    ))
-
-  resp <-
-    httr::POST(url, gc_token(), encode = "json",
-               body = c(list(end = end, start = start), list(...))) %>%
-    httr::stop_for_status()
+  path <- file.path("calendars", x$id, "events")
+  body <- c(list(end = end, start = start), list(...))
+  resp <- POST_resource(path, body = body,
+                        sendNotifications = sendNotifications)
 
   event_out <- gc_event_id(x, json_content(resp)$id, verbose = FALSE)
 

@@ -37,3 +37,12 @@ PATCH_resource <- function(path, body) {
     invisible()
 
 }
+
+POST_resource <- function(path, body, ...) {
+
+  url <- build_url(path, fields = "id", ...)
+
+  httr::POST(url, gc_token(), encode = "json", body = body) %>%
+    httr::stop_for_status()
+
+}

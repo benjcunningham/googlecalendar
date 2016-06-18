@@ -37,12 +37,8 @@
 #' @export
 gc_new <- function(summary, ..., verbose = TRUE) {
 
-  url <- build_url("calendars", fields = "id")
-
-  resp <-
-    httr::POST(url, gc_token(), encode = "json",
-               body = c(list(summary = summary), list(...))) %>%
-    httr::stop_for_status()
+  body <- c(list(summary = summary), list(...))
+  resp <- POST_resource("calendars", body = body)
 
   cal_out <- gc_id(json_content(resp)$id, verbose = FALSE)
 
