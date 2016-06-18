@@ -1,8 +1,14 @@
-context("Events and event lists work")
+context("Events")
+
+# Setup ----------------------------------------------------------------
 
 .cred$token <- readRDS("googlecalendar_token.rds")
 
-cal <- gc_new("TestThat", verbose = FALSE)
+file <- "testobjs.rds"
+load(file)
+
+# Regular testing ------------------------------------------------------
+
 event <- gc_event_new(
   cal,
   start = list(dateTime = "2016-09-21T17:00:00Z"),
@@ -15,9 +21,24 @@ test_that("New events are well-formed", {
   expect_is(event, "event")
 })
 
-status <- gc_event_delete(event, verbose = FALSE)
-test_that("Event deletion works", {
-  expect_true(status)
+test_that("Event lists are well-formed", {
+  expect_is(gc_event_ls(cal, verbose = FALSE), "event_ls")
 })
 
-gc_delete(cal, verbose = FALSE)
+refetch <- gc_event_id(cal, event$id, verbose = FALSE)
+
+test_that("Events can be retrieved by ID", {
+  expect_is(refetch, "event")
+  expect_identical(refetch, event)
+})
+
+refetch <- gc_event_query(cal, q = "Birthday Dinner", verbose = FALSE)
+
+test_that("Events can be retrieved by query", {
+  expect_is(refetch, "event")
+  expect_identical(refetch, event)
+})
+
+# Saving ---------------------------------------------------------------
+
+save(cal, event, file = file)
