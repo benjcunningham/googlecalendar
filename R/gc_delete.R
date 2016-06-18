@@ -21,7 +21,8 @@ gc_delete <- function(x, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  status <- DELETE_resource(file.path("calendars", x$id))
+  path <- file.path("calendars", x$id)
+  status <- DELETE_resource(path)
 
   if (status != 204) {
     if (verbose) {

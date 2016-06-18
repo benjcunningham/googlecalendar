@@ -26,18 +26,8 @@ gc_event_delete <- function(x, sendNotifications = FALSE,
 
   stopifnot(methods::is(x, "event"))
 
-  url <-
-    file.path(.cred$base_url_v3, "calendars", x$cid, "events", x$id) %>%
-    httr::modify_url(query = list(
-      sendNotifications = sendNotifications,
-      key = getOption("googlecalendar.client_key")
-    ))
-
-  resp <-
-    httr::DELETE(url, gc_token()) %>%
-    httr::stop_for_status()
-
-  status <- httr::status_code(resp)
+  path <- file.path("calendars", x$cid, "events", x$id)
+  status <- DELETE_resource(path, sendNotifications = sendNotifications)
 
   if (status != 204) {
     if (verbose) {
