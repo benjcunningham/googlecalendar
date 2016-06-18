@@ -1,3 +1,20 @@
+#' Generalized DELETE method
+#'
+#' @param path Path of the HTTP request.
+#'
+#' @return Status code of the API response.
+#'
+#' @keywords internal
+DELETE_resource <- function(path) {
+
+  url <- build_url(path)
+
+  httr::DELETE(url, gc_token()) %>%
+    httr::stop_for_status() %>%
+    httr::status_code()
+
+}
+
 #' Generalized GET method
 #'
 #' @param path Path of the HTTP request.

@@ -21,13 +21,7 @@ gc_delete <- function(x, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  url <- build_url(file.path("calendars", x$id))
-
-  resp <-
-    httr::DELETE(url, gc_token()) %>%
-    httr::stop_for_status()
-
-  status <- httr::status_code(resp)
+  status <- DELETE_resource(file.path("calendars", x$id))
 
   if (status != 204) {
     if (verbose) {
