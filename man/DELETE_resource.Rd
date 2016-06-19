@@ -4,10 +4,13 @@
 \alias{DELETE_resource}
 \title{Generalized DELETE method}
 \usage{
-DELETE_resource(path)
+DELETE_resource(path, ...)
 }
 \arguments{
 \item{path}{Path of the HTTP request.}
+
+\item{\dots}{Additional parameters to be passed to \code{build_url}
+as additional named components in the URL query.}
 }
 \value{
 Status code of the API response.

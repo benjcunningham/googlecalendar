@@ -39,6 +39,21 @@ test_that("Events can be retrieved by query", {
   expect_identical(refetch, event)
 })
 
+event <- gc_event_edit(
+  event,
+  start = list(dateTime = "2016-09-21T16:00:00Z"),
+  end = list(dateTime = "2016-09-21T18:00:00Z"),
+  summary = "Early Birthday Dinner",
+  verbose = FALSE
+)
+
+test_that("Event edits are reflected downstream", {
+  expect_is(event, "event")
+  expect_equal(event$start$dateTime, "2016-09-21T16:00:00Z")
+  expect_equal(event$end$dateTime, "2016-09-21T18:00:00Z")
+  expect_equal(event$summary, "Early Birthday Dinner")
+})
+
 # Saving ---------------------------------------------------------------
 
 save(cal, event, file = file)

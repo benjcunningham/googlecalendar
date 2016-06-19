@@ -12,7 +12,7 @@ POST_resource(path, body, ...)
 \item{body}{Request body to be encoded as JSON, as a named list.}
 
 \item{\dots}{Additional parameters to be passed to \code{build_url}
-as additional named components in the URL query.}
+as additional named components of the URL query.}
 }
 \value{
 If request was successful, the API response. Otherwise, an
