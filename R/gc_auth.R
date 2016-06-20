@@ -110,8 +110,8 @@ gc_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
   } else {
     if (verbose) {
       message("No Google Calendar API token to remove.")
-      return(invisible(FALSE))
     }
+    return(invisible(FALSE))
   }
 
   invisible(TRUE)
