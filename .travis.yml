@@ -1,6 +1,10 @@
 language: R
 sudo: false
 cache: packages
+
 before_install:
-- openssl aes-256-cbc -K $encrypted_b491a4e24340_key -iv $encrypted_b491a4e24340_iv
-  -in tests/testthat/googlecalendar_token.rds.enc -out tests/testthat/googlecalendar_token.rds -d
+  - openssl aes-256-cbc -K $encrypted_b491a4e24340_key -iv $encrypted_b491a4e24340_iv
+    -in tests/testthat/googlecalendar_token.rds.enc -out tests/testthat/googlecalendar_token.rds -d
+
+after_success:
+  - Rscript -e 'covr::coveralls()'
