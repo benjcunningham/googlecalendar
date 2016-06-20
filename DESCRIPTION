@@ -19,4 +19,5 @@ Imports:
     purrr,
     stringr
 Suggests:
+    covr,
     testthat
