@@ -6,7 +6,23 @@ context("Calendars")
 
 file <- "testobjs.rds"
 
-# Regular testing ------------------------------------------------
+# Ensure fresh environment ---------------------------------------------
+
+ls <- dplyr::filter(gc_ls(), summary == "TestThat")
+
+tmp <- purrr::`%||%`(
+  unlist(lapply(ls$id, function(i) {
+    gc_id(i, verbose = FALSE) %>%
+      gc_delete(verbose = FALSE)
+  })),
+  TRUE
+)
+
+test_that("Environment is free of test calendars", {
+  expect_equal(sum(!tmp), 0)
+})
+
+# Regular testing ------------------------------------------------------
 
 test_that("Calendar lists are well-formed", {
   expect_is(gc_ls(), "googlecalendar_ls")

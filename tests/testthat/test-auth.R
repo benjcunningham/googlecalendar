@@ -1,4 +1,4 @@
-context("Authentication is setup for testing")
+context("Authentication")
 
 test_that("No token is registered", {
   expect_null(.cred$token)
