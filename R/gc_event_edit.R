@@ -25,8 +25,7 @@ gc_event_edit <- function(x, ..., verbose = TRUE) {
   path <- file.path("calendars", x$cid, "events", x$id)
   PATCH_resource(path, body = dots)
 
-  cal <- gc_id(x$cid, verbose = FALSE)
-  event <- gc_event_id(cal, x$id, verbose = FALSE)
+  event <- gc_event_lookup(x$cid, x$id, verbose = FALSE)
 
   if (identical(event[names(dots)], dots)) {
     if (verbose) {
