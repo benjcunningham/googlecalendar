@@ -74,11 +74,18 @@ gc_event_id <- function(x, id, verbose = TRUE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
-  path <- file.path("calendars", x$id, "events", id)
+  gc_event_lookup(x$id, id, verbose = verbose)
+
+}
+
+#' @keywords internal
+gc_event_lookup <- function(cid, id, verbose) {
+
+  path <- file.path("calendars", cid, "events", id)
   resp <- GET_resource(path)
 
   event <- json_content(resp, flatten = TRUE)
-  event$cid <- x$id
+  event$cid <- cid
 
   as.event(event)
 
