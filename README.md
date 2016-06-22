@@ -5,7 +5,7 @@
 googlecalendar: Google Calendar for R
 =====================================
 
-[![Build Status](https://travis-ci.org/benjcunningham/googlecalendar.svg?branch=master)](https://travis-ci.org/benjcunningham/googlecalendar)
+[![Build Status](https://travis-ci.org/benjcunningham/googlecalendar.svg?branch=master)](https://travis-ci.org/benjcunningham/googlecalendar) [![Coverage Status](https://coveralls.io/repos/github/benjcunningham/googlecalendar/badge.svg?branch=master)](https://coveralls.io/github/benjcunningham/googlecalendar?branch=master)
 
 **googlecalendar** makes Google Calendar easily accessible through R. The package offers a collection of functions for accessing and modifying calendars, events, and UI settings via Google's [Calendar API](https://developers.google.com/google-apps/calendar/). While not a verbatim port of available methods, the package aims to provide intuitive commands for interacting with the Calendar service.
 
@@ -69,28 +69,28 @@ cal <- gc_new("useR Meetups", location = "University of Iowa")
 
 And here is what that new calendar looks like, saved as a `googlecalendar` object:
 
-    ## Calendar ID: sddqgom7mvjp6rpr8gopqek2sg@group.calendar.google.com
+    ## Calendar ID: jnoatiaa69mnit8tmgvsf8i5o8@group.calendar.google.com
     ## 
     ##       Title: useR Meetups
     ## Description: NA
     ##    Location: University of Iowa
     ##   Time Zone: UTC
     ## Permissions: owner
-    ##        ETag: "1466198840190000"
+    ##        ETag: "1466562913923000"
 
 Don't worry if that doesn't look like much. The `print()` dispatch for this object class intentionally hides a lot of non-essential information. To see what lies beneath the surface, we can use `str(cal)`.
 
     ## List of 18
     ##  $ kind                : chr "calendar#calendarListEntry"
-    ##  $ etag                : chr "\"1466198840190000\""
-    ##  $ id                  : chr "sddqgom7mvjp6rpr8gopqek2sg@group.calendar.google.com"
+    ##  $ etag                : chr "\"1466562913923000\""
+    ##  $ id                  : chr "jnoatiaa69mnit8tmgvsf8i5o8@group.calendar.google.com"
     ##  $ summary             : chr "useR Meetups"
     ##  $ description         : chr NA
     ##  $ location            : chr "University of Iowa"
     ##  $ timeZone            : chr "UTC"
     ##  $ summaryOverride     : chr NA
-    ##  $ colorId             : chr "8"
-    ##  $ backgroundColor     : chr "#16a765"
+    ##  $ colorId             : chr "23"
+    ##  $ backgroundColor     : chr "#cd74e6"
     ##  $ foregroundColor     : chr "#000000"
     ##  $ hidden              : logi FALSE
     ##  $ selected            : logi TRUE
@@ -125,8 +125,8 @@ For good measure, let's convince ourselves that the changes were made and return
 
     ## List of 18
     ##  $ kind                : chr "calendar#calendarListEntry"
-    ##  $ etag                : chr "\"1466198841201000\""
-    ##  $ id                  : chr "sddqgom7mvjp6rpr8gopqek2sg@group.calendar.google.com"
+    ##  $ etag                : chr "\"1466562919414000\""
+    ##  $ id                  : chr "jnoatiaa69mnit8tmgvsf8i5o8@group.calendar.google.com"
     ##  $ summary             : chr "useR Meetups"
     ##  $ description         : chr "Iowa City's useR Group"
     ##  $ location            : chr "University of Iowa"
