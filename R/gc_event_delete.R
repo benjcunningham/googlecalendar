@@ -5,8 +5,7 @@
 #'
 #' @param x An \code{event} object representing the calendar to
 #'   delete.
-#' @param sendNotifications Logical indicating whether to send
-#'   notifications about the deletion of the event.
+#' @template sendNotifications
 #' @template verbose
 #'
 #' @return Logical indicating whether the event was successfully

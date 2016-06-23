@@ -18,8 +18,7 @@
 #'   properties to be specified on event creation. May include the
 #'   following properties: \code{date}, \code{dateTime}, and
 #'   \code{timeZone}.
-#' @param sendNotifications Logical indicating whether to send
-#'   notifications about the creation of the new event.
+#' @template sendNotifications
 #' @param \dots Additional parameters to be passed as part of the HTTP request
 #'   body to the API. May include the query parameters listed in the
 #'   resource documentation. Key properties include: \code{summary},
