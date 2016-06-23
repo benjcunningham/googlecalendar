@@ -1,3 +1,19 @@
+#' Create new events in bulk
+#'
+#' Imports a table of new events, adding them to a Google Calendar. If
+#' successful, this function returns a vector of event IDs. Use requires
+#' authorization.
+#'
+#' @param x \code{googlecalendar} object representing the calendar in
+#'   which to create the event.
+#' @param events \code{data.frame} where each row represents an event to
+#'   be created.
+#' @template sendNotifications
+#' @template verbose
+#'
+#' @return Character vector of the newly created event IDs.
+#'
+#' @export
 gc_event_import <- function(x, events, sendNotifications = FALSE,
                             verbose = TRUE) {
 
@@ -8,23 +24,31 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
 
   out <-
     purrr::by_row(events, function(e) {
-      body <- # COERCE tbl_df ROW TO list
-        resp <- POST_resource(path, body = body,
-                              sendNotifications = sendNotifications)
-      if (methods::is(resp, "character")) {
-        sprintf("Successfully created event starting: %s",
-                body$start$dateTime %||% body$start$date) %>%
-          message()
-      } else {
-        sprintf("Something went wrong creating event: %s",
-                body$start$dateTime %||% body$start$date %||% "???") %>%
-          message()
-        return(NULL)
-      }
-      resp
-    }, .to = "id") %>%
-    dplyr::select(id)
 
-  invisible(out)
+      body <- as.body(e)
+      resp <- POST_resource(path, body = body,
+                            sendNotifications =
+                              e$sendNotifications %||% sendNotification)
+
+      if (methods::is(resp, "character")) {
+        if (verbose) {
+          sprintf("Successfully created event starting: %s",
+                  body$start$dateTime %||% body$start$date) %>%
+            message()
+        }
+      } else {
+        if (verbose) {
+          sprintf("Something went wrong creating event: %s",
+                  body$start$dateTime %||% body$start$date %||% "???") %>%
+            message()
+        }
+        return(NA_character_)
+      }
+
+      resp
+
+    }, .to = "id")
+
+  invisible(out$id)
 
 }

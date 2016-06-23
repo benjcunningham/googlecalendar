@@ -1,0 +1,80 @@
+as.body <- function(x) UseMethod("as.body", x)
+
+as.body.tbl_df <- function(x) {
+
+  b <- list()
+
+  b$cid <- x$cid
+  b$etag <- x$etag
+  b$id <- x$id
+  b$status <- x$status
+  b$htmlLink <- x$htmlLink
+  b$created <- x$created # RFC3339
+  b$updated <- x$updated # RFC3339
+  b$summary <- x$summary
+  b$description <- x$description
+  b$location <- x$location
+  b$colorId <- x$colorId
+  b$creator$id <- x$creator.id
+  b$creator$email <- x$creator.email
+  b$creator$displayName <- x$creator.displayName
+  b$creator$self <- x$creator.self
+  b$organizer$id <- x$organizer.id
+  b$organizer$email <- x$organizer.email
+  b$organizer$displayName <- x$organizer.displayName
+  b$organizer$self <- x$organizer.self
+  b$start$date <- x[["start.date"]] # yyyy-mm-dd
+  b$start$dateTime <- x[["start.dateTime"]] # RFC3339
+  b$start$timeZone <- x[["start.timeZone"]]
+  b$end$date <- x[["end.date"]]
+  b$end$dateTime <- x[["end.dateTime"]]
+  b$end$timeZone <- x[["end.timeZone"]]
+  b$endTimeUnspecified <- x$endTimeUnspecified
+  b$recurrence <- x$recurrence
+  b$recurringEventId <- x$recurringEventId
+  b$originalStartTime$date <- x[["originalStartTime.date"]]
+  b$originalStartTime$dateTime <- x[["originalStartTime.dateTime"]]
+  b$originalStartTime$timeZone <- x[["originalStartTime.timeZone"]]
+  b$transparency <- x$transparency
+  b$visibility <- x$visibility
+  b$iCalUID <- x$iCalUID
+  b$sequence <- x$sequence
+  b$attendees$id <- x$attendees.id
+  b$attendees$email <- x$attendees.email
+  b$attendees$displayName <- x$attendees.displayName
+  b$attendees$organizer <- x$attendees.organizer
+  b$attendees$self <- x$attendees.self
+  b$attendees$resource <- x$attendees.resource
+  b$attendees$optional <- x$attendees.optional
+  b$attendees$responseStatus <- x$attendees.responseStatus
+  b$attendees$comment <- x$attendees.comment
+  b$attendees$additionalGuests <- x$attendees.additionalGuests
+  b$attendeesOmitted <- x$attendeesOmitted
+  b$hangoutLink <- x$hangoutLink
+  b$gadget$type <- x$gadget.type
+  b$gadget$title <- x$gadget.title
+  b$gadget$link <- x$gadget.link
+  b$gadget$iconLink <- x$gadget.iconLink
+  b$gadget$width <- x$gadget.width
+  b$gadget$height <- x$gadget.height
+  b$gadget$display <- x$gadget.display
+  b$anyoneCanAddSelf <- x$anyoneCanAddSelf
+  b$guestsCanInviteOthers <- x$guestsCanInviteOthers
+  b$guestsCanModify <- x$guestsCanModify
+  b$guestsCanSeeOtherGuests <- x$guestsCanSeeOtherGuests
+  b$privateCopy <- x$privateCopy
+  b$locked <- x$locked
+  b$reminders$useDefault <- x$reminders.useDefault
+  b$reminders$overrides$methods <- x$reminders.overrides.methods
+  b$reminders.overrides.minutes <- x$reminders.overrides.minutes
+  b$source$url <- x$source.url
+  b$source$title <- x$source.title
+  b$attachments$fileUrl <- x$attachments.fileUrl
+  b$attachments$title <- x$attachments.title
+  b$attachments$mimeType <- x$attachments.mimeType
+  b$attachments$iconLink <- x$attachments.iconLink
+  b$attachments$fileId <- x$attachments.fileId
+
+  b
+
+}
