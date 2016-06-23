@@ -26,9 +26,8 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
     purrr::by_row(events, function(e) {
 
       body <- as.body(e)
-      resp <- POST_resource(path, body = body,
-                            sendNotifications =
-                              e$sendNotifications %||% sendNotification)
+      resp <- POST_resource(path, body = body, sendNotifications =
+                            e$sendNotifications %||% sendNotifications)
 
       if (methods::is(resp, "character")) {
         if (verbose) {
