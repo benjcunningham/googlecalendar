@@ -54,6 +54,17 @@ test_that("Event edits are reflected downstream", {
   expect_equal(event$summary, "Early Birthday Dinner")
 })
 
+csv <- readr::read_csv("event_import.csv",
+                       col_types = readr::cols(.default = "c"))
+
+imports <- gc_event_import(cal, csv, verbose = FALSE)
+
+test_that("CSV files import without warnings", {
+  expect_is(imports, "character")
+  expect_length(imports, nrow(csv))
+  expect_equal(sum(is.na(imports)), 0)
+})
+
 # Saving ---------------------------------------------------------------
 
 save(cal, event, file = file)

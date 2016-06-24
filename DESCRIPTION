@@ -20,4 +20,5 @@ Imports:
     stringr
 Suggests:
     covr,
+    readr,
     testthat
