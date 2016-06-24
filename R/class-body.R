@@ -1,5 +1,3 @@
-
-
 as.body <- function(x) UseMethod("as.body", x)
 
 as.body.tbl_df <- function(x) {
@@ -7,9 +5,9 @@ as.body.tbl_df <- function(x) {
   b <- list()
 
   b$cid <- NULL
-  b$etag <- x$etag %||% NULL
-  b$id <- x[["id"]]
-  b$status <- x[["status"]] %||% NULL
+  b$etag <- x$etag
+  b$id <- x$id
+  b$status <- x$status
   b$htmlLink <- x$htmlLink
   b$created <- x$created # RFC3339
   b$updated <- x$updated # RFC3339
