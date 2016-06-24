@@ -4,7 +4,7 @@ as.body.tbl_df <- function(x) {
 
   b <- list()
 
-  b$cid <- x$cid
+  b$cid <- NULL
   b$etag <- x$etag
   b$id <- x$id
   b$status <- x$status
