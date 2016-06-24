@@ -28,8 +28,9 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
       body <- as.body(e)
       resp <- POST_resource(path, body = body, sendNotifications =
                             e$sendNotifications %||% sendNotifications)
+      id <- json_content(resp)$id
 
-      if (methods::is(resp, "character")) {
+      if (methods::is(id, "character")) {
         if (verbose) {
           sprintf("Successfully created event starting: %s",
                   body$start$dateTime %||% body$start$date) %>%
@@ -44,10 +45,10 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
         return(NA_character_)
       }
 
-      resp
+      id
 
     }, .to = "id")
 
-  invisible(out$id)
+  invisible(unlist(out$id))
 
 }
