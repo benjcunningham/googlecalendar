@@ -16,7 +16,7 @@ following properties: \code{date}, \code{dateTime}, and
 \code{timeZone}.}
 
 \item{sendNotifications}{Logical indicating whether to send
-notifications about the creation of the new event.}
+notifications about the event.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}

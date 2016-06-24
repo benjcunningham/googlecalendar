@@ -11,7 +11,7 @@ gc_event_delete(x, sendNotifications = FALSE, verbose = TRUE)
 delete.}
 
 \item{sendNotifications}{Logical indicating whether to send
-notifications about the deletion of the event.}
+notifications about the event.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
