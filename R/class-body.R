@@ -1,6 +1,6 @@
 as.body <- function(x) UseMethod("as.body", x)
 
-as.body.tbl_df <- function(x) {
+as.body.data.frame <- function(x) {
 
   b <- list()
 

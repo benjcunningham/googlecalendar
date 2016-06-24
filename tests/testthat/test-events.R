@@ -54,8 +54,7 @@ test_that("Event edits are reflected downstream", {
   expect_equal(event$summary, "Early Birthday Dinner")
 })
 
-csv <- readr::read_csv("event_import.csv",
-                       col_types = readr::cols(.default = "c"))
+csv <- read.csv("event_import.csv", stringsAsFactors = FALSE)
 
 imports <- gc_event_import(cal, csv, verbose = FALSE)
 
