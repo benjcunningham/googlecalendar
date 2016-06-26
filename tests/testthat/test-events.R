@@ -56,13 +56,13 @@ test_that("Event edits are reflected downstream", {
 
 csv <- read.csv("event_import.csv", stringsAsFactors = FALSE)
 
-# imports <- gc_event_import(cal, csv, verbose = FALSE)
-#
-# test_that("CSV files import without warnings", {
-#   expect_is(imports, "character")
-#   expect_length(imports, nrow(csv))
-#   expect_equal(sum(is.na(imports)), 0)
-# })
+imports <- gc_event_import(cal, csv, verbose = FALSE)
+
+test_that("CSV files import without warnings", {
+  expect_is(imports, "character")
+  expect_length(imports, nrow(csv))
+  expect_equal(sum(is.na(imports)), 0)
+})
 
 # Saving ---------------------------------------------------------------
 
