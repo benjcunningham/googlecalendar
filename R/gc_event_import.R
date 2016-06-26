@@ -27,7 +27,8 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
 
       body <- as.body(e)
       resp <- POST_resource(path, body = body, sendNotifications =
-                            e$sendNotifications %||% sendNotifications)
+                            unclass(e)[["sendNotifications"]] %||%
+                              sendNotifications)
       id <- json_content(resp)$id
 
       if (methods::is(id, "character")) {
