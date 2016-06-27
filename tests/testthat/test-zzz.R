@@ -9,20 +9,15 @@ load(file)
 
 # Regular testing ------------------------------------------------------
 
-status <- gc_event_delete(event, verbose = FALSE)
-
 test_that("Event deletion works", {
-  expect_true(status)
+  expect_true(gc_event_delete(event))
 })
-
-status <- gc_delete(cal, verbose = FALSE)
 
 test_that("Calendar deletion works", {
-  expect_true(status)
+  expect_true(gc_delete(cal))
 })
 
-file.remove(file)
-
 test_that("Local copies have been trashed", {
+  file.remove(file)
   expect_false(file.exists(file))
 })

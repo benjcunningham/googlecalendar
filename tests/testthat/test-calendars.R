@@ -8,15 +8,11 @@ file <- "testobjs.rds"
 
 # Ensure fresh environment ---------------------------------------------
 
-ls <- dplyr::filter(gc_ls(), summary == "TestThat")
+ls <- suppressMessages(dplyr::filter(gc_ls(), summary == "TestThat"))
 
-tmp <- purrr::`%||%`(
-  unlist(lapply(ls$id, function(i) {
-    gc_id(i, verbose = FALSE) %>%
-      gc_delete(verbose = FALSE)
-  })),
-  TRUE
-)
+tmp <- suppressMessages(purrr::`%||%`(
+  unlist(lapply(ls$id, function(i) gc_delete(gc_id(i)))), TRUE
+))
 
 test_that("Environment is free of test calendars", {
   expect_equal(sum(!tmp), 0)
@@ -28,34 +24,37 @@ test_that("Calendar lists are well-formed", {
   expect_is(gc_ls(), "googlecalendar_ls")
 })
 
-cal <- gc_new("TestThat", verbose = FALSE)
+cal <- suppressMessages(gc_new("TestThat"))
 
 test_that("New calendars are well-formed", {
   expect_is(cal, "googlecalendar")
   expect_equal(cal$summary, "TestThat")
 })
 
-refetch <- gc_id(cal$id, verbose = FALSE)
-
 test_that("The new calendar can be fetched by ID", {
+
+  refetch <- gc_id(cal$id, verbose = FALSE)
+
   expect_is(refetch, "googlecalendar")
   expect_identical(refetch, cal)
-})
 
-refetch <- gc_summary(cal$summary, verbose = FALSE)
+})
 
 test_that("The new calendar can be fetched by summary", {
+
+  refetch <- gc_summary(cal$summary, verbose = FALSE)
+
   expect_is(refetch, "googlecalendar")
   expect_identical(refetch, cal)
+
 })
 
-cal <- gc_edit(
+cal <- suppressMessages(gc_edit(
   cal,
   description = "Enjoyable testing",
   timeZone = "America/Chicago",
-  colorId = "20",
-  verbose = FALSE
-)
+  colorId = "20"
+))
 
 test_that("Calendar edits are reflected downstream", {
   expect_is(cal, "googlecalendar")
