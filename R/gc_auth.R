@@ -32,6 +32,9 @@
 #'   below for more information on overriding the default arguments.
 #' @param cache Logical indicating whether to cache credentials in a
 #'   \code{.httr-oauth} file in the working directory.
+#' @param token Token object to be set in the credentialing environment.
+#'   This is most useful for authentication in a non-interactive
+#'   setting.
 #' @template verbose
 #'
 #' @return An OAuth token object.
@@ -48,20 +51,29 @@ gc_auth <- function(new_user = FALSE,
                     key = getOption("googlecalendar.client_key"),
                     secret = getOption("googlecalendar.client_secret"),
                     cache = getOption("googlecalendar.oauth_cache"),
+                    token = NULL,
                     verbose = FALSE) {
 
   if (new_user) {
     gc_deauth(clear_cache = TRUE, verbose = verbose)
   }
 
-  scope <- "https://www.googleapis.com/auth/calendar"
-  gc_app <- httr::oauth_app("google", key = key, secret = secret)
+  if (!is.null(token)) {
 
-  gc_token <-
-    httr::oauth_endpoints("google") %>%
-    httr::oauth2.0_token(gc_app, scope, cache = cache)
+    .cred$token <- token
 
-  .cred$token <- gc_token
+  } else {
+
+    scope <- "https://www.googleapis.com/auth/calendar"
+    gc_app <- httr::oauth_app("google", key = key, secret = secret)
+
+    gc_token <-
+      httr::oauth_endpoints("google") %>%
+      httr::oauth2.0_token(gc_app, scope, cache = cache)
+
+    .cred$token <- gc_token
+
+  }
 
   invisible(.cred$token)
 

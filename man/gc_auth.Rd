@@ -6,7 +6,8 @@
 \usage{
 gc_auth(new_user = FALSE, key = getOption("googlecalendar.client_key"),
   secret = getOption("googlecalendar.client_secret"),
-  cache = getOption("googlecalendar.oauth_cache"), verbose = FALSE)
+  cache = getOption("googlecalendar.oauth_cache"), token = NULL,
+  verbose = FALSE)
 }
 \arguments{
 \item{new_user}{Logical indicating whether to reauthorize using a new
@@ -17,6 +18,10 @@ below for more information on overriding the default arguments.}
 
 \item{cache}{Logical indicating whether to cache credentials in a
 \code{.httr-oauth} file in the working directory.}
+
+\item{token}{Token object to be set in the credentialing environment.
+This is most useful for authentication in a non-interactive
+setting.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
