@@ -30,7 +30,7 @@ Calendars. If successful, this function returns a
 Calendar API \code{Calendars} resource. Use requires authorization.
 }
 \details{
-See \code{\link{googlecalendars}} for a complete description of the
+See \code{\link{gc_calendar}} for a complete description of the
 information made available in a \code{googlecalendar} object.
 
 For more information on optional calendar creation properties or

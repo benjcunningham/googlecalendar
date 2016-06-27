@@ -4,7 +4,7 @@
 #' returns an \code{event} object made available through the Google
 #' Calendar API \code{Events} resource. Use requires authorization.
 #'
-#' See \code{\link{events}} for a complete description of the
+#' See \code{\link{gc_event}} for a complete description of the
 #' information made available in an \code{event} object.
 #'
 #' For more information on optional event creation properties or fields

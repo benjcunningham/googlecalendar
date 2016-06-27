@@ -5,7 +5,7 @@
 #' \code{googlecalendar} object made available through the Google
 #' Calendar API \code{Calendars} resource. Use requires authorization.
 #'
-#' See \code{\link{googlecalendars}} for a complete description of the
+#' See \code{\link{gc_calendar}} for a complete description of the
 #' information made available in a \code{googlecalendar} object.
 #'
 #' For more information on optional calendar creation properties or
