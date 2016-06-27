@@ -5,31 +5,29 @@
 #' available through the Google Calendar API \code{CalendarList}
 #' resource. Use requires authorization.
 #'
-#' For more information on the structure of the \code{CalendarList}
+#' For more information on the structure of a \code{CalendarList}
 #' resource (and therefore the expected contents of a
 #' \code{googlecalendar} object), see the Google Calendar API
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList}{CalendarList
-#' Overview}.
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList}{CalendarList Overview}.
 #'
-#' @name googlecalendars
+#' @name gc_calendar
 #'
 #' @param x Calendar-identifying information. In the case of
 #'   \code{gc_id}, a character string representing a calendar ID to
 #'   which the user has read access. In the case of \code{gc_summary}, a
-#'   character string containing a regular expression (or exact
-#'   character string for \code{fixed = TRUE}) to be matched to the
-#'   calendar title field, \code{summary}.
-#' @param fixed Logical indicating if \code{x} should be matched
+#'   character string containing a regular expression to be matched to
+#'   the calendar title field, \code{summary}.
+#' @param fixed Logical indicating whether \code{x} should be matched
 #'   literally.
-#' @param ... Optional arguments to be passed to \code{\link{grep}}.
+#' @param \dots Optional arguments to be passed to \code{\link{grep}}.
 #' @template verbose
 #'
 #' @return A \code{googlecalendar} object (a custom class wrapping a
-#'   named list representing metadata for a single calendar.
+#'   named list representing metadata for a single calendar).
 #'
 #' @examples
 #' \dontrun{
-#' gc_id("<26-CHAR-ID>@group.calendar.google.com")
+#' gc_id("kpoji8n345cid1eu6o0mlcbs30@group.calendar.google.com")
 #'
 #' gc_summary("ments$")
 #' gc_summary("commitments", ignore.case = TRUE)
@@ -43,7 +41,8 @@ gc_id <- function(x, verbose = TRUE) {
 
 }
 
-#' @rdname googlecalendars
+#' @rdname gc_calendar
+#'
 #' @export
 gc_summary <- function(x, fixed = FALSE, ..., verbose = TRUE) {
 

@@ -7,7 +7,7 @@
 gc_delete(x, verbose = TRUE)
 }
 \arguments{
-\item{x}{A \code{googlecalendar} object representing the calendar to
+\item{x}{\code{googlecalendar} object representing the calendar to
 delete.}
 
 \item{verbose}{Logical indicating whether to print informative

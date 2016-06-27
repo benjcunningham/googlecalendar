@@ -3,7 +3,7 @@
 #' Deletes a single calendar. This function operates on the Google
 #' Calendar API \code{Calendars} resource. Use requires authorization.
 #'
-#' @param x A \code{googlecalendar} object representing the calendar to
+#' @param x \code{googlecalendar} object representing the calendar to
 #'   delete.
 #' @template verbose
 #'

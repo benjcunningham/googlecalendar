@@ -9,10 +9,9 @@
 #' the authorization process will be triggered by the first action that
 #' requires a user login.
 #'
-#' While the client credentials \code{key} and \code{secret} are handled
-#' by default when \code{googlecalendar} is loaded, the arguments must
-#' be either interactively-specified or predefined in an
-#' \code{.Rprofile} file using:
+#' Before using \code{googlecalendar}, the client credentials \code{key}
+#' and \code{secret} should be predefined in an \code{.Rprofile} file
+#' using:
 #'
 #' \preformatted{
 #' options(
@@ -21,15 +20,20 @@
 #' )
 #' }
 #'
+#' \code{googlecalendar.oauth_cache} can also be specified in
+#' \code{.Rprofile}. This option sets the default value of \code{cache}.
+#'
 #' For more information on obtaining your own client credentials
 #' required for authentication, see the official
 #' \href{https://github.com/benjcunningham/googlecalendar}{README} on
 #' GitHub.
 #'
 #' @param new_user Logical indicating whether to reauthorize using a new
-#'   account and remove the current cached credentials.
-#' @param key,secret The client key and secret for the application. See
-#'   below for more information on overriding the default arguments.
+#'   account and remove the current cached credentials. Currently, only
+#'   one account can be authorized or cached in a directory at a time.
+#' @param key,secret Client key and secret for the application. See
+#'   below for more information on setting these in an \code{.Rprofile}
+#'   file.
 #' @param cache Logical indicating whether to cache credentials in a
 #'   \code{.httr-oauth} file in the working directory.
 #' @param token Token object or the name of a token object file to be
@@ -43,9 +47,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Load or refresh credentials.
 #' # Note that a web browser authentication process may be triggered.
 #' gs_auth()
+#'
+#' gs_auth(token = "saved_token.rds")
 #' }
 gc_auth <- function(new_user = FALSE,
                     key = getOption("googlecalendar.client_key"),

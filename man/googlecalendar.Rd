@@ -7,8 +7,18 @@
 \title{googlecalendar}
 \description{
 Easily access and modify calendars, events, and UI settings via the
-Google Calendar API. For more information on installation, usage, and
-project development status, see the official
+Google Calendar API.
+}
+\details{
+\code{googlecalendar} makes Google Calendar easily accessible through
+R. The package offers a collection of functions for accessing and
+modifying calendars, events, and UI settings via Google's
+\href{https://developers.google.com/google-apps/calendar/}{Calendar API}.
+Rather than porting the available methods verbatim, the package aims
+to provide intuitive commands for interacting with Calendar services.
+
+For more information on installation, usage, and project development,
+see the official
 \href{https://github.com/benjcunningham/googlecalendar}{README} on
 GitHub.
 }

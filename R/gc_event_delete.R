@@ -3,8 +3,7 @@
 #' Deletes a single calendar event. This function operates on the Google
 #' Calendar API \code{Events} resource. Use requires authorization.
 #'
-#' @param x An \code{event} object representing the calendar to
-#'   delete.
+#' @param x \code{event} object representing the calendar to delete.
 #' @template sendNotifications
 #' @template verbose
 #'
@@ -13,10 +12,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' cal <- gc_summary("Commitments")
-#' event <- gc_event_query(cal, q = "Lunch with Mitch")
-#'
-#' gc_event_delete(event)
+#' gc_summary("Commitments") %>%
+#'   gc_event_query(q = "Lunch with Mitch") %>%
+#'   gc_event_delete()
 #' }
 #'
 #' @export

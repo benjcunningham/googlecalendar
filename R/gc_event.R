@@ -7,7 +7,7 @@
 #'
 #' The \code{gc_event_query} method can accept an arbitrary number of
 #' named arguments via the \dots parameter. These values are passed as
-#' part of the HTTP request to the \code{Events} resource; queries may
+#' part of the HTTP request to the \code{Events} resource. Queries may
 #' include those parameters listed in the
 #' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/list#request}{Events: list}
 #' reference documentation. Notable parameters include:
@@ -22,17 +22,16 @@
 #'     (formatted as an RFC3339 timestamp).
 #' }
 #'
-#' For more information on the structure of the \code{Events} resource
-#' (and therefore the expected contents of an \code{events} object), see
-#' the Google Calendar API
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events
-#' Overview}.
+#' For more information on the structure of the Events resource (and
+#' therefore the expected contents of an \code{events} object), see the
+#' Google Calendar API
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Overview}.
 #'
-#' @name events
+#' @name gc_event
 #'
 #' @param x \code{googlecalendar} object representing the calendar for
 #'   which to list events.
-#' @param id Character string representing the event ID.
+#' @param id Event ID as a character string.
 #' @template verbose
 #' @param \dots Additional parameters to be passed as part of the HTTP
 #'   request to the API. More information on these named arguments are
@@ -40,10 +39,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' cal <- gc_summary("Commitments")
+#' gc_summary("Commitments") %>%
+#'   gc_event_id("lohlv4duqhqu8bh6kfok9ookmk")
 #'
-#' gc_event_id(cal, "<ID>")
-#' gc_event_query(cal, q = "Lunch with Will")
+#' gc_summary("Commitments") %>%
+#'   gc_event_query(cal, q = "Lunch with Will")
 #' }
 #'
 #' @export
@@ -68,7 +68,8 @@ gc_event_query <- function(x, ..., verbose = TRUE) {
 
 }
 
-#' @rdname events
+#' @rdname gc_event
+#'
 #' @export
 gc_event_id <- function(x, id, verbose = TRUE) {
 

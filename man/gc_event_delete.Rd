@@ -7,8 +7,7 @@
 gc_event_delete(x, sendNotifications = FALSE, verbose = TRUE)
 }
 \arguments{
-\item{x}{An \code{event} object representing the calendar to
-delete.}
+\item{x}{\code{event} object representing the calendar to delete.}
 
 \item{sendNotifications}{Logical indicating whether to send
 notifications about the event.}
@@ -26,10 +25,9 @@ Calendar API \code{Events} resource. Use requires authorization.
 }
 \examples{
 \dontrun{
-cal <- gc_summary("Commitments")
-event <- gc_event_query(cal, q = "Lunch with Mitch")
-
-gc_event_delete(event)
+gc_summary("Commitments") \%>\%
+  gc_event_query(q = "Lunch with Mitch") \%>\%
+  gc_event_delete()
 }
 
 }

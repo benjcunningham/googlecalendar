@@ -15,10 +15,10 @@ messages.}
 
 \item{\dots}{Optional named properties and their new values to be
 passed as part of the HTTP request body to the API. May include the
-following properties: \code{description}, \code{location},
-\code{summary}, \code{timeZone}, \code{backgroundColor},
-\code{colorId}, \code{defaultReminders}, \code{foregroundColor},
-\code{hidden}, \code{notificationSettings}, \code{selected}, and
+following: \code{description}, \code{location}, \code{summary},
+\code{timeZone}, \code{backgroundColor}, \code{colorId},
+\code{defaultReminders}, \code{foregroundColor}, \code{hidden},
+\code{notificationSettings}, \code{selected}, and
 \code{summaryOverride}.}
 }
 \description{
@@ -29,7 +29,7 @@ requires authorization.
 }
 \details{
 This method combines the functionalities of the \code{PUT} methods
-for the both the \code{Calendars} and \code{CalendarList} resources.
+for both the \code{Calendars} and \code{CalendarList} resources.
 For more information on properties available for editing, see the
 \href{https://developers.google.com/google-apps/calendar/v3/reference/calendars/update}{Calendars: Update}
 and
@@ -38,9 +38,8 @@ methods overviews in the Google Calendar API reference documentation.
 }
 \examples{
 \dontrun{
-cal <- gc_new("Work Schedule")
-
-gc_edit(cal, summary = "Work", location = "New York")
+gc_new("Clint Meetings") \%>\%
+  gc_edit(summary = "Client Meetings", location = "New York")
 }
 
 }
