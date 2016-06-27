@@ -32,9 +32,9 @@
 #'   below for more information on overriding the default arguments.
 #' @param cache Logical indicating whether to cache credentials in a
 #'   \code{.httr-oauth} file in the working directory.
-#' @param token Token object to be set in the credentialing environment.
-#'   This is most useful for authentication in a non-interactive
-#'   setting.
+#' @param token Token object or the name of a token object file to be
+#'   set in the credentialing environment. This is most useful for
+#'   authentication in a non-interactive setting.
 #' @template verbose
 #'
 #' @return An OAuth token object.
@@ -59,6 +59,10 @@ gc_auth <- function(new_user = FALSE,
   }
 
   if (!is.null(token)) {
+
+    if(methods::is(token, "character")) {
+      token <- readRDS(token)
+    }
 
     .cred$token <- token
 

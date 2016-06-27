@@ -19,9 +19,9 @@ below for more information on overriding the default arguments.}
 \item{cache}{Logical indicating whether to cache credentials in a
 \code{.httr-oauth} file in the working directory.}
 
-\item{token}{Token object to be set in the credentialing environment.
-This is most useful for authentication in a non-interactive
-setting.}
+\item{token}{Token object or the name of a token object file to be
+set in the credentialing environment. This is most useful for
+authentication in a non-interactive setting.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
