@@ -7,7 +7,7 @@
 gc_event_delete(x, sendNotifications = FALSE, verbose = TRUE)
 }
 \arguments{
-\item{x}{\code{event} object representing the calendar to delete.}
+\item{x}{\code{event} object representing the event to delete.}
 
 \item{sendNotifications}{Logical indicating whether to send
 notifications about the event.}
@@ -20,8 +20,8 @@ Logical indicating whether the event was successfully
   deleted.
 }
 \description{
-Deletes a single calendar event. This function operates on the Google
-Calendar API \code{Events} resource. Use requires authorization.
+Deletes a calendar event. This method operates on the Google
+Calendar API Events resource.
 }
 \examples{
 \dontrun{

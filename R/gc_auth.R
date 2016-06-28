@@ -20,13 +20,13 @@
 #' )
 #' }
 #'
-#' \code{googlecalendar.oauth_cache} can also be specified in
-#' \code{.Rprofile}. This option sets the default value of \code{cache}.
-#'
-#' For more information on obtaining your own client credentials
-#' required for authentication, see the official
+#' For more information on obtaining these credentials, see the project
 #' \href{https://github.com/benjcunningham/googlecalendar}{README} on
 #' GitHub.
+#'
+#' The \code{googlecalendar.oauth_cache} option may be additionally
+#' specified in your \code{.Rprofile}. This option sets the default
+#' value of \code{cache}, and the recommended value is \code{TRUE}.
 #'
 #' @param new_user Logical indicating whether to reauthorize using a new
 #'   account and remove the current cached credentials. Currently, only
@@ -41,15 +41,15 @@
 #'   authentication in a non-interactive setting.
 #' @template verbose
 #'
-#' @return An OAuth token object.
+#' @return An OAuth token object. However, the method should usually be
+#'   called for its internal side effects.
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' # Note that a web browser authentication process may be triggered.
 #' gs_auth()
-#'
+#' gs_auth(token = readRDS("saved_token.rds"))
 #' gs_auth(token = "saved_token.rds")
 #' }
 gc_auth <- function(new_user = FALSE,
@@ -88,12 +88,13 @@ gc_auth <- function(new_user = FALSE,
 
 }
 
-#' Deauthorize requests to Google Calendar API
+#' Deauthorize requests to the Google Calendar API
 #'
-#' Deauthorizes this package to interact with your Google Calendars.
+#' Deauthorizes this package from interacting with your Google
+#' Calendars.
 #'
-#' @param clear_cache Logical indicating whether to remove the
-#'   \code{.httr-oauth} file in the working directory.
+#' @param clear_cache Logical indicating whether to remove any
+#'   \code{.httr-oauth} file that exists in the working directory.
 #' @template verbose
 #'
 #' @return Logical indicating whether a token was removed from the

@@ -1,9 +1,9 @@
 #' Delete an event
 #'
-#' Deletes a single calendar event. This function operates on the Google
-#' Calendar API \code{Events} resource. Use requires authorization.
+#' Deletes a calendar event. This method operates on the Google
+#' Calendar API Events resource.
 #'
-#' @param x \code{event} object representing the calendar to delete.
+#' @param x \code{event} object representing the event to delete.
 #' @template sendNotifications
 #' @template verbose
 #'

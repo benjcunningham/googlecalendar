@@ -11,11 +11,10 @@ gc_id(x, verbose = TRUE)
 gc_summary(x, fixed = FALSE, ..., verbose = TRUE)
 }
 \arguments{
-\item{x}{Calendar-identifying information. In the case of
-\code{gc_id}, a character string representing a calendar ID to
-which the user has read access. In the case of \code{gc_summary}, a
-character string containing a regular expression to be matched to
-the calendar title field, \code{summary}.}
+\item{x}{Calendar-identifying information. For \code{gc_id}, a
+calendar ID as a character string. For \code{gc_summary}, a regular
+expression to be matched to the calendar title field,
+\code{summary}.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
@@ -23,23 +22,28 @@ messages.}
 \item{fixed}{Logical indicating whether \code{x} should be matched
 literally.}
 
-\item{\dots}{Optional arguments to be passed to \code{\link{grep}}.}
+\item{\dots}{Optional arguments to be passed to \code{\link[base]{grep}}.}
 }
 \value{
-A \code{googlecalendar} object (a custom class wrapping a
-  named list representing metadata for a single calendar).
+Calendar metadata as a \code{googlecalendar} object (a custom
+  class wrapping a named list).
 }
 \description{
 Retrieves metadata for a Google Calendar in the form of a
-\code{googlecalendar} object. This function filters information made
-available through the Google Calendar API \code{CalendarList}
-resource. Use requires authorization.
+\code{googlecalendar} object. This method filters information made
+available through the Google Calendar API CalendarList
+resource.
 }
 \details{
-For more information on the structure of a \code{CalendarList}
-resource (and therefore the expected contents of a
-\code{googlecalendar} object), see the Google Calendar API
-\href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList}{CalendarList Overview}.
+While the Google Calendar API prefers to return sparse structures,
+\code{googlecalendar} objects attempt to faithfully represent all
+documented fields in the CalendarList resource. In practice, this
+means that values unreported by the service are reported as \code{NA}
+or, if applicable, their documented default values.
+
+For more information on the structure of a \code{googlecalendar}
+object, see the Google Calendar API
+\href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList}{CalendarList Resource Overview}.
 }
 \examples{
 \dontrun{

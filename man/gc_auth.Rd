@@ -29,7 +29,8 @@ authentication in a non-interactive setting.}
 messages.}
 }
 \value{
-An OAuth token object.
+An OAuth token object. However, the method should usually be
+  called for its internal side effects.
 }
 \description{
 Authorizes this package to interact with your Google Calendars. You
@@ -53,19 +54,18 @@ options(
 )
 }
 
-\code{googlecalendar.oauth_cache} can also be specified in
-\code{.Rprofile}. This option sets the default value of \code{cache}.
-
-For more information on obtaining your own client credentials
-required for authentication, see the official
+For more information on obtaining these credentials, see the project
 \href{https://github.com/benjcunningham/googlecalendar}{README} on
 GitHub.
+
+The \code{googlecalendar.oauth_cache} option may be additionally
+specified in your \code{.Rprofile}. This option sets the default
+value of \code{cache}, and the recommended value is \code{TRUE}.
 }
 \examples{
 \dontrun{
-# Note that a web browser authentication process may be triggered.
 gs_auth()
-
+gs_auth(token = readRDS("saved_token.rds"))
 gs_auth(token = "saved_token.rds")
 }
 }

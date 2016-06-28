@@ -18,8 +18,8 @@ Logical indicating whether the calendar was successfully
   deleted.
 }
 \description{
-Deletes a single calendar. This function operates on the Google
-Calendar API \code{Calendars} resource. Use requires authorization.
+Deletes a calendar. This method operates on the Google Calendar API
+Calendars resource.
 }
 \examples{
 \dontrun{

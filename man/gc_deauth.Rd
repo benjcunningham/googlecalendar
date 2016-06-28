@@ -2,13 +2,13 @@
 % Please edit documentation in R/gc_auth.R
 \name{gc_deauth}
 \alias{gc_deauth}
-\title{Deauthorize requests to Google Calendar API}
+\title{Deauthorize requests to the Google Calendar API}
 \usage{
 gc_deauth(clear_cache = TRUE, verbose = TRUE)
 }
 \arguments{
-\item{clear_cache}{Logical indicating whether to remove the
-\code{.httr-oauth} file in the working directory.}
+\item{clear_cache}{Logical indicating whether to remove any
+\code{.httr-oauth} file that exists in the working directory.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
@@ -18,7 +18,8 @@ Logical indicating whether a token was removed from the
   internal credentialing environment.
 }
 \description{
-Deauthorizes this package to interact with your Google Calendars.
+Deauthorizes this package from interacting with your Google
+Calendars.
 }
 \examples{
 \dontrun{

@@ -1,41 +1,44 @@
 #' Retrieve a calendar event
 #'
 #' Retrieves metadata for a Google Calendar event in the form of an
-#' \code{event} object. This function requests information made
-#' available through the Google Calendar API \code{Events} resource. Use
-#' requires authorization.
+#' \code{event} object. This method requests information made available
+#' through the Google Calendar API Events resource.
 #'
-#' The \code{gc_event_query} method can accept an arbitrary number of
-#' named arguments via the \dots parameter. These values are passed as
-#' part of the HTTP request to the \code{Events} resource. Queries may
-#' include those parameters listed in the
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/list#request}{Events: list}
-#' reference documentation. Notable parameters include:
+#' For \code{gc_event_query}, an arbitrary number of named arguments
+#' may be supplied via the \dots parameter. These values are passed as
+#' part of the HTTP request. A list of available optional query
+#' parameters can be found in
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/list#request}{Events: List}.
+#'
+#' Notable parameters include:
 #'
 #' \itemize{
-#'   \item{q} Free text search terms to find in any field.
-#'   \item{singleEvents} Logical indicating whether to expand recurring
-#'     events into instances and only return single one-off events.
-#'   \item{timeMax} Exclusive upper bound of the start time filter
-#'     (formatted as an RFC3339 timestamp).
-#'   \item{timeMin} Inclusive lower bound of the end time filter
-#'     (formatted as an RFC3339 timestamp).
+#'   \item{\code{q} -- Free text search terms to find in any field.}
+#'   \item{\code{singleEvents} -- Logical indicating whether to expand
+#'     recurring events into instances and only return single one-off
+#'     events.}
+#'   \item{\code{timeMax} -- Exclusive upper bound of the start time
+#'     filter (formatted as an RFC3339 timestamp).}
+#'   \item{\code{timeMin} -- Inclusive lower bound of the end time
+#'     filter (formatted as an RFC3339 timestamp).}
 #' }
 #'
-#' For more information on the structure of the Events resource (and
-#' therefore the expected contents of an \code{events} object), see the
-#' Google Calendar API
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Overview}.
+#' For more information on the structure of an \code{events} object, see
+#' the Google Calendar API
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Resource Overview}.
 #'
 #' @name gc_event
 #'
 #' @param x \code{googlecalendar} object representing the calendar for
 #'   which to list events.
 #' @param id Event ID as a character string.
-#' @template verbose
 #' @param \dots Additional parameters to be passed as part of the HTTP
-#'   request to the API. More information on these named arguments are
-#'   available below.
+#'   request. More information on these named arguments are available
+#'   below.
+#' @template verbose
+#'
+#' @return Event metadata as a \code{event} object (a custom class
+#'   wrapping a named list).
 #'
 #' @examples
 #' \dontrun{

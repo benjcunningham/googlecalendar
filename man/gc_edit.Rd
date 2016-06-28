@@ -14,31 +14,29 @@ edit.}
 messages.}
 
 \item{\dots}{Optional named properties and their new values to be
-passed as part of the HTTP request body to the API. May include the
-following: \code{description}, \code{location}, \code{summary},
-\code{timeZone}, \code{backgroundColor}, \code{colorId},
-\code{defaultReminders}, \code{foregroundColor}, \code{hidden},
-\code{notificationSettings}, \code{selected}, and
-\code{summaryOverride}.}
+passed as part of the HTTP request body.}
+}
+\value{
+The edited resource as a \code{googlecalendar} object.
 }
 \description{
-Enables arbitrary edits to the metadata of a calendar. This function
-returns an updated \code{googlecalendar} object made available
-through the Google Calendar API \code{CalendarList} resource. Use
-requires authorization.
+Makes arbitrary edits to the metadata of a calendar. This method
+operates on the Google Calendar API CalendarList and Calendars
+resources, as necessary. It returns information made available
+through the CalendarList resource.
 }
 \details{
-This method combines the functionalities of the \code{PUT} methods
-for both the \code{Calendars} and \code{CalendarList} resources.
-For more information on properties available for editing, see the
-\href{https://developers.google.com/google-apps/calendar/v3/reference/calendars/update}{Calendars: Update}
-and
+This method combines the functionalities of the \code{PATCH} methods
+for both the Calendars and CalendarList resources. For more
+information on properties available for editing, see
 \href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList/update}{CalendarList: Update}
-methods overviews in the Google Calendar API reference documentation.
+and
+\href{https://developers.google.com/google-apps/calendar/v3/reference/calendars/update}{Calendars: Update}
+in the Google Calendar API reference documentation.
 }
 \examples{
 \dontrun{
-gc_new("Clint Meetings") \%>\%
+gc_new(summary = "Clint Meetings") \%>\%
   gc_edit(summary = "Client Meetings", location = "New York")
 }
 
