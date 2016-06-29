@@ -24,7 +24,7 @@ request. More information on these named arguments are available
 below.}
 }
 \value{
-Event metadata as a \code{event} object (a custom class
+Event metadata as an \code{event} object (a custom class
   wrapping a named list).
 }
 \description{
@@ -52,7 +52,7 @@ Notable parameters include:
     filter (formatted as an RFC3339 timestamp).}
 }
 
-For more information on the structure of an \code{events} object, see
+For more information on the structure of an \code{event} object, see
 the Google Calendar API
 \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Resource Overview}.
 }

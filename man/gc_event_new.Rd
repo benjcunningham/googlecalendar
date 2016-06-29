@@ -31,9 +31,8 @@ An invisible \code{event} object (a custom class wrapping a
  list) representing metadata for the newly created event.
 }
 \description{
-Creates an event in a Google Calendar. If successful, this function
-returns an \code{event} object made available through the Google
-Calendar API \code{Events} resource. Use requires authorization.
+Creates an event in a Google Calendar. This method operates on the
+Google Calendar API Events resource.
 }
 \details{
 See \code{\link{gc_event}} for a complete description of the

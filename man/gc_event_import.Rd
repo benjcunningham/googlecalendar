@@ -38,7 +38,7 @@ headers:
     sharing the same name as their \code{event} object counterpart.
     For example, arrange event titles below the header \code{summary}
     or locations below the header \code{location}.}
-  \itme{The path of a nested property is delimited with a \code{.}
+  \item{The path of a nested property is delimited with a \code{.}
   (period). For example, arrange start times below the header
   \code{start.dateTime} or the end time zone below the header
   \code{end.timeZone}.}
@@ -47,8 +47,8 @@ headers:
 When reading such a file into R, be careful that your input method
 preserves the header names and does not improperly coerce column
 types. For example, with \code{read.csv}, you may need to set
-\code{check.names = FALSE} and with \code{readr::read_csv}, you may
-need to set \code{col_types = readr::cols(.default = "c")}.
+\code{check.names = FALSE} and with \code{readr}'s \code{read_csv},
+you may need to set \code{col_types = cols(.default = "c")}.
 
 Note that it may not be possible to represent all properties of an
 event within the scalar confines of a single CSV-type row (the
