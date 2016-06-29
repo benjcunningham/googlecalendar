@@ -1,8 +1,7 @@
 #' Create a new event
 #'
-#' Creates an event in a Google Calendar. If successful, this function
-#' returns an \code{event} object made available through the Google
-#' Calendar API \code{Events} resource. Use requires authorization.
+#' Creates an event in a Google Calendar. This method operates on the
+#' Google Calendar API Events resource.
 #'
 #' See \code{\link{gc_event}} for a complete description of the
 #' information made available in an \code{event} object.
