@@ -1,32 +1,34 @@
-googlecalendar <- function() {
+googlecalendar <- function(...) {
+
+  dots <- list(...)
 
   structure(list(
     kind = "calendar#calendarListEntry",
-    etag = character(),
-    id = character(),
-    summary = character(),
-    description = character(),
-    location = character(),
-    timeZone = character(),
-    summaryOverride = character(),
-    colorId = character(),
-    backgroundColor = character(),
-    foregroundColor = character(),
-    hidden = logical(),
-    selected = logical(),
-    accessRole = character(),
+    etag = dots[["etag"]] %||% character(),
+    id = dots[["id"]] %||% character(),
+    summary = dots[["summary"]] %||% character(),
+    description = dots[["description"]] %||% character(),
+    location = dots[["location"]] %||% character(),
+    timeZone = dots[["timeZone"]] %||% character(),
+    summaryOverride = dots[["summaryOverride"]] %||% character(),
+    colorId = dots[["colorId"]] %||% character(),
+    backgroundColor = dots[["backgroundColor"]] %||% character(),
+    foregroundColor = dots[["foregroundColor"]] %||% character(),
+    hidden = dots[["hidden"]] %||% logical(),
+    selected = dots[["selected"]] %||% logical(),
+    accessRole = dots[["accessRole"]] %||% character(),
     defaultReminders = list(
-      method = character(),
-      minutes = integer()
+      method = dots[["defaultReminders"]][["method"]] %||% character(),
+      minutes = dots[["defaultReminders"]][["minutes"]] %||% integer()
     ),
     notificationSettings = list(
       notifications = list(
-        type = character(),
-        method = character()
+        type = dots[["notificationSettings"]][["notifications"]][["type"]] %||% character(),
+        method = dots[["notificationSettings"]][["notifications"]][["method"]] %||% character()
       )
     ),
-    primary = logical(),
-    deleted = logical()
+    primary = dots[["primary"]] %||% logical(),
+    deleted = dots[["deleted"]] %||% logical()
   ),
   class = c("googlecalendar", "list"))
 
@@ -79,8 +81,15 @@ print.googlecalendar <- function(x, ...) {
     "Permissions: %s",
     "       ETag: %s",
     sep = "\n") %>%
-    sprintf(x$id, x$summary, x$description, x$location, x$timeZone,
-            x$accessRole, x$etag) %>%
+    sprintf(
+      x$id %0L% NA,
+      x$summary %0L% NA,
+      x$description %0L% NA,
+      x$location %0L% NA,
+      x$timeZone %0L% NA,
+      x$accessRole %0L% NA,
+      x$etag %0L% NA
+    ) %>%
     cat()
 
 }
