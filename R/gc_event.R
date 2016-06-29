@@ -1,13 +1,12 @@
 #' Retrieve a calendar event
 #'
 #' Retrieves metadata for a Google Calendar event in the form of an
-#' \code{event} object. This method requests information made available
+#' \code{event} object. This method filters information made available
 #' through the Google Calendar API Events resource.
 #'
-#' For \code{gc_event_query}, an arbitrary number of named arguments
-#' may be supplied via the \dots parameter. These values are passed as
-#' part of the HTTP request. A list of available optional query
-#' parameters can be found in
+#' For \code{gc_event_query}, an arbitrary number of optional query
+#' parameters may be supplied via \dots. A list of available parameters
+#' can be found in
 #' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/list#request}{Events: List}.
 #'
 #' Notable parameters include:
@@ -30,10 +29,10 @@
 #' @name gc_event
 #'
 #' @param x \code{googlecalendar} object representing the calendar for
-#'   which to list events.
+#'   where the event resides.
 #' @param id Event ID as a character string.
 #' @param \dots Additional parameters to be passed as part of the HTTP
-#'   request. More information on these named arguments are available
+#'   request. More information on these optional values is available
 #'   below.
 #' @template verbose
 #'

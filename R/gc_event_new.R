@@ -1,31 +1,25 @@
-#' Create a new event
+#' Create a new calendar event
 #'
 #' Creates an event in a Google Calendar. This method operates on the
 #' Google Calendar API Events resource.
 #'
-#' See \code{\link{gc_event}} for a complete description of the
-#' information made available in an \code{event} object.
-#'
-#' For more information on optional event creation properties or fields
-#' returned by this function, see the
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/insert}{Events: Insert}
-#' method overview in the Google Calendar API reference documentation.
+#' For more information on the structure of an \code{event} object, see
+#' the Google Calendar API
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Resource Overview}.
 #'
 #' @param x \code{googlecalendar} object representing the calendar in
 #'   which to create the event.
-#' @param start,end Named lists representing the start and end time
-#'   properties to be specified on event creation. May include the
-#'   following properties: \code{date}, \code{dateTime}, and
+#' @param start,end Named list representing the start or end time. May
+#'   include the following properties: \code{date}, \code{dateTime}, and
 #'   \code{timeZone}.
 #' @template sendNotifications
-#' @param \dots Additional parameters to be passed as part of the HTTP request
-#'   body to the API. May include the query parameters listed in the
-#'   resource documentation. Key properties include: \code{summary},
-#'   \code{attendees}, \code{description}, and \code{location}.
+#' @param \dots Additional parameters to be passed as part of the HTTP
+#'   request body. More information on these optional values is
+#'   available below.
 #' @template verbose
 #'
-#' @return An invisible \code{event} object (a custom class wrapping a
-#'  list) representing metadata for the newly created event.
+#' @return Event metadata as an invisible \code{event} object (a custom
+#'   class wrapping a named list).
 #'
 #' @examples
 #' \dontrun{

@@ -2,8 +2,8 @@
 #'
 #' Makes arbitrary edits to the metadata of a calendar. This method
 #' operates on the Google Calendar API CalendarList and Calendars
-#' resources, as necessary. It returns information made available
-#' through the CalendarList resource.
+#' resources. It filters information made available through the
+#' CalendarList resource.
 #'
 #' This method combines the functionalities of the \code{PATCH} methods
 #' for both the Calendars and CalendarList resources. For more
@@ -15,8 +15,8 @@
 #'
 #' @param x \code{googlecalendar} object representing the calendar to
 #'   edit.
-#' @param \dots Optional named properties and their new values to be
-#'   passed as part of the HTTP request body.
+#' @param \dots Optional properties and their new values to be passed as
+#'   part of the HTTP \code{PATCH} request body.
 #' @template verbose
 #'
 #' @return The edited resource as a \code{googlecalendar} object.

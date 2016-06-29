@@ -7,26 +7,27 @@
 #'
 #' Typically, users will not need to call this function explicitly, as
 #' the authorization process will be triggered by the first action that
-#' requires a user login.
-#'
-#' Before using \code{googlecalendar}, the client credentials \code{key}
-#' and \code{secret} should be predefined in an \code{.Rprofile} file
-#' using:
+#' requires a user login. However, before using \code{googlecalendar},
+#' the client credentials \code{key} and \code{secret} should be
+#' predefined in an \code{.Rprofile} file using:
 #'
 #' \preformatted{
 #' options(
 #'   googlecalendar.client_key = "<KEY>",
-#'   googlecalendar.client_secret = "<SECRET>"
+#'   googlecalendar.client_secret = "<SECRET>",
+#'   googlecalendar.oauth_cache = TRUE
 #' )
 #' }
 #'
+#' Note that the default value of \code{cache} may also be specified in
+#' the \code{.Rprofile} file using \code{googlecalendar.oauth_cache}.
+#' The recommended value is \code{TRUE}.
+#'
 #' For more information on obtaining these credentials, see the project
 #' \href{https://github.com/benjcunningham/googlecalendar}{README} on
-#' GitHub.
-#'
-#' The \code{googlecalendar.oauth_cache} option may be additionally
-#' specified in your \code{.Rprofile}. This option sets the default
-#' value of \code{cache}, and the recommended value is \code{TRUE}.
+#' GitHub or visit the
+#' \href{https://console.developers.google.com/}{Google API Console} to
+#' get started registering an application.
 #'
 #' @param new_user Logical indicating whether to reauthorize using a new
 #'   account and remove the current cached credentials. Currently, only
@@ -36,13 +37,12 @@
 #'   file.
 #' @param cache Logical indicating whether to cache credentials in a
 #'   \code{.httr-oauth} file in the working directory.
-#' @param token Token object or the name of a token object file to be
-#'   set in the credentialing environment. This is most useful for
-#'   authentication in a non-interactive setting.
+#' @param token Token object or the name of a token object \code{.rds}
+#'   file to be set in the credentialing environment. This is most
+#'   useful for authentication in a non-interactive setting.
 #' @template verbose
 #'
-#' @return An OAuth token object. However, the method should usually be
-#'   called for its internal side effects.
+#' @return An OAuth token object.
 #'
 #' @export
 #'

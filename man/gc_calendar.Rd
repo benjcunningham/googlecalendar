@@ -4,7 +4,7 @@
 \alias{gc_calendar}
 \alias{gc_id}
 \alias{gc_summary}
-\title{Retrieve a Google Calendar}
+\title{Retrieve a calendar}
 \usage{
 gc_id(x, verbose = TRUE)
 

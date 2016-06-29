@@ -1,4 +1,4 @@
-#' Edit an event
+#' Edit a calendar event
 #'
 #' Makes arbitrary edits to the metadata of an event. This method
 #' operates on the Google Calendar API Events resource.

@@ -1,37 +1,29 @@
 #' Create a new calendar
 #'
-#' Creates a new secondary calendar in the user's list of Google
-#' Calendars. If successful, this function returns a
-#' \code{googlecalendar} object made available through the Google
-#' Calendar API \code{Calendars} resource. Use requires authorization.
+#' Creates a new secondary calendar. This method operates on the Google
+#' Calendar API Calendars resource.
 #'
-#' See \code{\link{gc_calendar}} for a complete description of the
-#' information made available in a \code{googlecalendar} object.
-#'
-#' For more information on optional calendar creation properties or
-#' fields returned by this function, see the
-#' \href{https://developers.google.com/google-apps/calendar/v3/reference/calendars/insert}{Calendars: Insert}
-#' method overview in the Google Calendar API reference documentation.
+#' For more information on the structure of a calendar object, see the
+#' Google Calendar API
+#' \href{https://developers.google.com/google-apps/calendar/v3/reference/calendarList}{CalendarList Resource Overview}.
 #'
 #' @param summary Character string representing the title of the
 #'   calendar.
 #' @param \dots Additional parameters to be passed as part of the HTTP
-#'   request body to the API. May include the following properties:
-#'   \code{description}, \code{etag}, \code{id}, \code{kind},
-#'   \code{location}, and \code{timeZone}.
+#'   request body. More information on these optional values is
+#'   available below.
 #' @template verbose
 #'
-#' @return A single-row \code{googlecalendar} object (a custom class
-#'   wrapping \code{\link[dplyr]{tbl_df}}) representing metadata for the
-#'   newly created calendar.
+#' @return Calendar metadata as an invisible \code{googlecalendar}
+#'   object (a custom class wrapping a named list).
 #'
 #' @examples
 #' \dontrun{
-#' gc_new("R User Group")
-#'
-#' gc_new("R User Group",
-#'        description = "Local user group meetings",
-#'        timeZone = "America/Chicago")
+#' gc_new(
+#'   "R User Group",
+#'   description = "Local user group meetings",
+#'   timeZone = "America/Chicago"
+#' )
 #' }
 #'
 #' @export

@@ -21,16 +21,15 @@ file.}
 \item{cache}{Logical indicating whether to cache credentials in a
 \code{.httr-oauth} file in the working directory.}
 
-\item{token}{Token object or the name of a token object file to be
-set in the credentialing environment. This is most useful for
-authentication in a non-interactive setting.}
+\item{token}{Token object or the name of a token object \code{.rds}
+file to be set in the credentialing environment. This is most
+useful for authentication in a non-interactive setting.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
 }
 \value{
-An OAuth token object. However, the method should usually be
-  called for its internal side effects.
+An OAuth token object.
 }
 \description{
 Authorizes this package to interact with your Google Calendars. You
@@ -41,26 +40,27 @@ to interact with the Google Calendar service.
 \details{
 Typically, users will not need to call this function explicitly, as
 the authorization process will be triggered by the first action that
-requires a user login.
-
-Before using \code{googlecalendar}, the client credentials \code{key}
-and \code{secret} should be predefined in an \code{.Rprofile} file
-using:
+requires a user login. However, before using \code{googlecalendar},
+the client credentials \code{key} and \code{secret} should be
+predefined in an \code{.Rprofile} file using:
 
 \preformatted{
 options(
   googlecalendar.client_key = "<KEY>",
-  googlecalendar.client_secret = "<SECRET>"
+  googlecalendar.client_secret = "<SECRET>",
+  googlecalendar.oauth_cache = TRUE
 )
 }
 
+Note that the default value of \code{cache} may also be specified in
+the \code{.Rprofile} file using \code{googlecalendar.oauth_cache}.
+The recommended value is \code{TRUE}.
+
 For more information on obtaining these credentials, see the project
 \href{https://github.com/benjcunningham/googlecalendar}{README} on
-GitHub.
-
-The \code{googlecalendar.oauth_cache} option may be additionally
-specified in your \code{.Rprofile}. This option sets the default
-value of \code{cache}, and the recommended value is \code{TRUE}.
+GitHub or visit the
+\href{https://console.developers.google.com/}{Google API Console} to
+get started registering an application.
 }
 \examples{
 \dontrun{

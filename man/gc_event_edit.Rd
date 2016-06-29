@@ -2,7 +2,7 @@
 % Please edit documentation in R/gc_event_edit.R
 \name{gc_event_edit}
 \alias{gc_event_edit}
-\title{Edit an event}
+\title{Edit a calendar event}
 \usage{
 gc_event_edit(x, ..., verbose = TRUE)
 }

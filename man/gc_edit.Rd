@@ -13,8 +13,8 @@ edit.}
 \item{verbose}{Logical indicating whether to print informative
 messages.}
 
-\item{\dots}{Optional named properties and their new values to be
-passed as part of the HTTP request body.}
+\item{\dots}{Optional properties and their new values to be passed as
+part of the HTTP \code{PATCH} request body.}
 }
 \value{
 The edited resource as a \code{googlecalendar} object.
@@ -22,8 +22,8 @@ The edited resource as a \code{googlecalendar} object.
 \description{
 Makes arbitrary edits to the metadata of a calendar. This method
 operates on the Google Calendar API CalendarList and Calendars
-resources, as necessary. It returns information made available
-through the CalendarList resource.
+resources. It filters information made available through the
+CalendarList resource.
 }
 \details{
 This method combines the functionalities of the \code{PATCH} methods

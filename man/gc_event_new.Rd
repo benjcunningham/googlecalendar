@@ -2,7 +2,7 @@
 % Please edit documentation in R/gc_event_new.R
 \name{gc_event_new}
 \alias{gc_event_new}
-\title{Create a new event}
+\title{Create a new calendar event}
 \usage{
 gc_event_new(x, start, end, ..., sendNotifications = FALSE, verbose = TRUE)
 }
@@ -10,9 +10,8 @@ gc_event_new(x, start, end, ..., sendNotifications = FALSE, verbose = TRUE)
 \item{x}{\code{googlecalendar} object representing the calendar in
 which to create the event.}
 
-\item{start, end}{Named lists representing the start and end time
-properties to be specified on event creation. May include the
-following properties: \code{date}, \code{dateTime}, and
+\item{start, end}{Named list representing the start or end time. May
+include the following properties: \code{date}, \code{dateTime}, and
 \code{timeZone}.}
 
 \item{sendNotifications}{Logical indicating whether to send
@@ -21,27 +20,22 @@ notifications about the event.}
 \item{verbose}{Logical indicating whether to print informative
 messages.}
 
-\item{\dots}{Additional parameters to be passed as part of the HTTP request
-body to the API. May include the query parameters listed in the
-resource documentation. Key properties include: \code{summary},
-\code{attendees}, \code{description}, and \code{location}.}
+\item{\dots}{Additional parameters to be passed as part of the HTTP
+request body. More information on these optional values is
+available below.}
 }
 \value{
-An invisible \code{event} object (a custom class wrapping a
- list) representing metadata for the newly created event.
+Event metadata as an invisible \code{event} object (a custom
+  class wrapping a named list).
 }
 \description{
 Creates an event in a Google Calendar. This method operates on the
 Google Calendar API Events resource.
 }
 \details{
-See \code{\link{gc_event}} for a complete description of the
-information made available in an \code{event} object.
-
-For more information on optional event creation properties or fields
-returned by this function, see the
-\href{https://developers.google.com/google-apps/calendar/v3/reference/events/insert}{Events: Insert}
-method overview in the Google Calendar API reference documentation.
+For more information on the structure of an \code{event} object, see
+the Google Calendar API
+\href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Resource Overview}.
 }
 \examples{
 \dontrun{

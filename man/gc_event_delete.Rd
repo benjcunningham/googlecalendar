@@ -2,7 +2,7 @@
 % Please edit documentation in R/gc_event_delete.R
 \name{gc_event_delete}
 \alias{gc_event_delete}
-\title{Delete an event}
+\title{Delete a calendar event}
 \usage{
 gc_event_delete(x, sendNotifications = FALSE, verbose = TRUE)
 }
@@ -20,8 +20,8 @@ Logical indicating whether the event was successfully
   deleted.
 }
 \description{
-Deletes a calendar event. This method operates on the Google
-Calendar API Events resource.
+Deletes a calendar event. This method operates on the Google Calendar
+API Events resource.
 }
 \examples{
 \dontrun{

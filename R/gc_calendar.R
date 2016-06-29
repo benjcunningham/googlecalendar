@@ -1,4 +1,4 @@
-#' Retrieve a Google Calendar
+#' Retrieve a calendar
 #'
 #' Retrieves metadata for a Google Calendar in the form of a
 #' \code{googlecalendar} object. This method filters information made

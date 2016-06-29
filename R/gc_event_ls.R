@@ -1,12 +1,11 @@
-#' List events on a Google Calendar
+#' List events in calendar
 #'
-#' Lists events scheduled on a Google Calendar. This method returns
-#' event information made available via the Google Calendar API Events
+#' Lists events scheduled on a Google Calendar. This method filters
+#' information made available via the Google Calendar API Events
 #' resource.
 #'
-#' An arbitrary number of named arguments may be supplied via the \dots
-#' parameter. These values are passed as part of the HTTP request. A
-#' list of optional query parameters can be found in
+#' An arbitrary number of optional query parameters may be supplied via
+#' \dots. A list of optional query parameters can be found in
 #' \href{https://developers.google.com/google-apps/calendar/v3/reference/events/list#parameters}{Events: List}.
 #'
 #' Notable parameters include:
@@ -23,9 +22,9 @@
 #' }
 #'
 #' Note that \code{event_ls} objects only represent resource properties
-#' that are atomic. To fetch all properties for an event, use
-#' \code{gc_event}. For more information on fields returned by this
-#' function, see the Google Calendar API
+#' that are naturally atomic. To fetch all properties for an event, use
+#' \code{gc_event}. For more information on the structure of an
+#' \code{event_ls} object, see the Google Calendar API
 #' \href{https://developers.google.com/google-apps/calendar/v3/reference/events}{Events Resource Overview}.
 #'
 #' @param x A \code{googlecalendar} object representing the calendar for
