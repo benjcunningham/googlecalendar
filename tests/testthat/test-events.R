@@ -46,8 +46,7 @@ event <- suppressMessages(gc_event_edit(
   event,
   start = list(dateTime = "2016-09-21T16:00:00-05:00"),
   end = list(dateTime = "2016-09-21T18:00:00-05:00"),
-  summary = "Early Birthday Dinner",
-  verbose = FALSE
+  summary = "Early Birthday Dinner"
 ))
 
 test_that("Event edits are reflected downstream", {

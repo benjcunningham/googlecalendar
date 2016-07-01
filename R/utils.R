@@ -24,8 +24,15 @@ truncate_col <- function(x, n = 20) {
 }
 
 # Does this already exist somewhere?
-# Am I justforgetting the better way to do this?
+# Am I just forgetting the better way to do this?
 `%NA%` <- function(x, y) {
   x[is.na(x)] <- y
+  x
+}
+
+`%0L%` <- function(x, y) {
+  if (length(x) == 0) {
+    return(y)
+  }
   x
 }
