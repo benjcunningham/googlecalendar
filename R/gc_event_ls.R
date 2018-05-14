@@ -59,7 +59,7 @@ gc_event_ls <- function(x, ..., verbose = FALSE) {
               "source", "start", "status", "summary", "transparency",
               "updated", "visibility")
 
-  path <- file.path("calendars", x$id, "events")
+  path <- file.path("calendars", x$id, "events?maxResults=1000&orderBy=startTime")
   resp <- GET_resource(path, fields = itemize_fields(fields))
 
   ls_raw <- json_content(resp, flatten = TRUE)$items
