@@ -58,7 +58,7 @@ gc_event_ls <- function(x, params = NULL, ..., verbose = FALSE) {
               "recurringEventId", "reminders/useDefault", "sequence",
               "source", "start", "status", "summary", "transparency",
               "updated", "visibility")
-  opt_params = paste0("?",params, "&singleEvents=true")
+  opt_params = paste0("?",params)
   path <- file.path("calendars", x$id, paste0("events", opt_params))
   resp <- GET_resource(path, fields = itemize_fields(fields))
 
