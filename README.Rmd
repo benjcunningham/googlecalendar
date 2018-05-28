@@ -2,6 +2,9 @@
 output: github_document
 ---
 
+WARNING: this is a forked version from [benjcunningham/googlecalendar](https://github.com/benjcunningham/googlecalendar). Visit this repository for the original version.
+
+
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
 
 <img src="icon.png" align="right"/>
