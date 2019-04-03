@@ -2,8 +2,8 @@
 % Please edit documentation in R/gc_event.R
 \name{gc_event}
 \alias{gc_event}
-\alias{gc_event_id}
 \alias{gc_event_query}
+\alias{gc_event_id}
 \title{Retrieve a calendar event}
 \usage{
 gc_event_query(x, ..., verbose = TRUE)
@@ -14,14 +14,14 @@ gc_event_id(x, id, verbose = TRUE)
 \item{x}{\code{googlecalendar} object representing the calendar for
 where the event resides.}
 
+\item{\dots}{Additional parameters to be passed as part of the HTTP
+request. More information on these optional values is available
+below.}
+
 \item{verbose}{Logical indicating whether to print informative
 messages.}
 
 \item{id}{Event ID as a character string.}
-
-\item{\dots}{Additional parameters to be passed as part of the HTTP
-request. More information on these optional values is available
-below.}
 }
 \value{
 Event metadata as an \code{event} object (a custom class
@@ -65,4 +65,3 @@ gc_summary("Commitments") \%>\%
 }
 
 }
-

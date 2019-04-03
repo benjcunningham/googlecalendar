@@ -9,11 +9,11 @@ gc_event_edit(x, ..., verbose = TRUE)
 \arguments{
 \item{x}{\code{event} object representing the event to edit.}
 
-\item{verbose}{Logical indicating whether to print informative
-messages.}
-
 \item{\dots}{Optional named properties and their new values to be
 passed as part of the HTTP request body.}
+
+\item{verbose}{Logical indicating whether to print informative
+messages.}
 }
 \value{
 The edited resource as an \code{event} object.
@@ -39,4 +39,3 @@ gc_new("Bar Trivia") \%>\%
 }
 
 }
-

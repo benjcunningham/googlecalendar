@@ -26,4 +26,3 @@ Calendars.
 gc_deauth()
 }
 }
-

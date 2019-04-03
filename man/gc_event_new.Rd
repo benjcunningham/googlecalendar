@@ -4,7 +4,8 @@
 \alias{gc_event_new}
 \title{Create a new calendar event}
 \usage{
-gc_event_new(x, start, end, ..., sendNotifications = FALSE, verbose = TRUE)
+gc_event_new(x, start, end, ..., sendNotifications = FALSE,
+  verbose = TRUE)
 }
 \arguments{
 \item{x}{\code{googlecalendar} object representing the calendar in
@@ -14,15 +15,15 @@ which to create the event.}
 include the following properties: \code{date}, \code{dateTime}, and
 \code{timeZone}.}
 
+\item{\dots}{Additional parameters to be passed as part of the HTTP
+request body. More information on these optional values is
+available below.}
+
 \item{sendNotifications}{Logical indicating whether to send
 notifications about the event.}
 
 \item{verbose}{Logical indicating whether to print informative
 messages.}
-
-\item{\dots}{Additional parameters to be passed as part of the HTTP
-request body. More information on these optional values is
-available below.}
 }
 \value{
 Event metadata as an invisible \code{event} object (a custom
@@ -50,4 +51,3 @@ gc_event_new(
 }
 
 }
-

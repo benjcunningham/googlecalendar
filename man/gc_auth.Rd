@@ -69,4 +69,3 @@ gs_auth(token = readRDS("saved_token.rds"))
 gs_auth(token = "saved_token.rds")
 }
 }
-

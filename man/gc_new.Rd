@@ -10,12 +10,12 @@ gc_new(summary, ..., verbose = TRUE)
 \item{summary}{Character string representing the title of the
 calendar.}
 
-\item{verbose}{Logical indicating whether to print informative
-messages.}
-
 \item{\dots}{Additional parameters to be passed as part of the HTTP
 request body. More information on these optional values is
 available below.}
+
+\item{verbose}{Logical indicating whether to print informative
+messages.}
 }
 \value{
 Calendar metadata as an invisible \code{googlecalendar}
@@ -40,4 +40,3 @@ gc_new(
 }
 
 }
-
