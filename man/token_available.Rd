@@ -15,4 +15,3 @@ Determines whether a token exists in the internal credential
 environment.
 }
 \keyword{internal}
-

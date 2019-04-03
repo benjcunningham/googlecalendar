@@ -22,4 +22,3 @@ see the official
 \href{https://github.com/benjcunningham/googlecalendar}{README} on
 GitHub.
 }
-

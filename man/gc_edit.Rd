@@ -10,11 +10,11 @@ gc_edit(x, ..., verbose = TRUE)
 \item{x}{\code{googlecalendar} object representing the calendar to
 edit.}
 
-\item{verbose}{Logical indicating whether to print informative
-messages.}
-
 \item{\dots}{Optional properties and their new values to be passed as
 part of the HTTP \code{PATCH} request body.}
+
+\item{verbose}{Logical indicating whether to print informative
+messages.}
 }
 \value{
 The edited resource as a \code{googlecalendar} object.
@@ -41,4 +41,3 @@ gc_new(summary = "Clint Meetings") \%>\%
 }
 
 }
-

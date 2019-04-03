@@ -14,4 +14,3 @@ Produces a token for interaction with the Google Calendar API by
 either reauthorizing the application or loading a cached token.
 }
 \keyword{internal}
-

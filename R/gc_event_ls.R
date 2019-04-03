@@ -45,7 +45,7 @@
 #' }
 #'
 #' @export
-gc_event_ls <- function(x, ..., verbose = FALSE) {
+gc_event_ls <- function(x, params = NULL, ..., verbose = FALSE) {
 
   stopifnot(methods::is(x, "googlecalendar"))
 
@@ -58,8 +58,8 @@ gc_event_ls <- function(x, ..., verbose = FALSE) {
               "recurringEventId", "reminders/useDefault", "sequence",
               "source", "start", "status", "summary", "transparency",
               "updated", "visibility")
-
-  path <- file.path("calendars", x$id, "events")
+  opt_params = paste0("?",params)
+  path <- file.path("calendars", x$id, paste0("events", opt_params))
   resp <- GET_resource(path, fields = itemize_fields(fields))
 
   ls_raw <- json_content(resp, flatten = TRUE)$items
