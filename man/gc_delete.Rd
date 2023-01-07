@@ -28,4 +28,3 @@ gc_summary("Commitments") \%>\%
 }
 
 }
-

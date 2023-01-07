@@ -20,4 +20,3 @@ If request was successful, the API response. Otherwise, an
 Generalized GET method
 }
 \keyword{internal}
-

@@ -12,11 +12,11 @@ exact character string for \code{fixed = TRUE}) to be matched to
 the calendar title field, \code{summary}. If non-\code{NULL}, only
 matching calendars will be returned.}
 
-\item{verbose}{Logical indicating whether to print informative
-messages.}
-
 \item{\dots}{Optional arguments to be passed to
 \code{\link[base]{grep}}.}
+
+\item{verbose}{Logical indicating whether to print informative
+messages.}
 }
 \value{
 A \code{googlecalendar_ls} object (a custom class wrapping a
@@ -49,4 +49,3 @@ gc_ls("Commitments", fixed = TRUE)
 }
 
 }
-

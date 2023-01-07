@@ -31,4 +31,3 @@ gc_summary("Commitments") \%>\%
 }
 
 }
-

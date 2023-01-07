@@ -4,10 +4,14 @@
 \alias{gc_auth}
 \title{Authorize requests to the Google Calendar API}
 \usage{
-gc_auth(new_user = FALSE, key = getOption("googlecalendar.client_key"),
+gc_auth(
+  new_user = FALSE,
+  key = getOption("googlecalendar.client_key"),
   secret = getOption("googlecalendar.client_secret"),
-  cache = getOption("googlecalendar.oauth_cache"), token = NULL,
-  verbose = FALSE)
+  cache = getOption("googlecalendar.oauth_cache"),
+  token = NULL,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{new_user}{Logical indicating whether to reauthorize using a new
@@ -69,4 +73,3 @@ gs_auth(token = readRDS("saved_token.rds"))
 gs_auth(token = "saved_token.rds")
 }
 }
-

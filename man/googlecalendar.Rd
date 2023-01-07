@@ -3,7 +3,6 @@
 \docType{package}
 \name{googlecalendar}
 \alias{googlecalendar}
-\alias{googlecalendar-package}
 \title{googlecalendar}
 \description{
 Easily access and modify calendars, events, and UI settings via the
@@ -22,4 +21,3 @@ see the official
 \href{https://github.com/benjcunningham/googlecalendar}{README} on
 GitHub.
 }
-
