@@ -61,8 +61,8 @@ gc_event_import <- function(x, events, sendNotifications = FALSE,
   path <- file.path("calendars", x$id, "events")
 
   out <-
-    purrr::by_row(events, function(e) {
-
+    purrr::pmap(events, function(...) {
+      e <- list(...)
       body <- as.body(e)
       resp <- POST_resource(path, body = body, sendNotifications =
                             unclass(e)[["sendNotifications"]] %||%
