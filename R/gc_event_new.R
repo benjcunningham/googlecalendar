@@ -37,6 +37,18 @@
 gc_event_new <- function(x, start, end, ..., sendNotifications = FALSE,
                          verbose = TRUE) {
 
+  list2env(purrr::map(list(start = start, end = end), function(.x) {
+    if (is.list(.x)) {
+      .x
+    } else {
+      nm <- if (inherits(.x, "POSIXct"))
+        "dateTime"
+      else if (inherits(.x, "Date"))
+        "date"
+
+      rlang::list2(!!rlang::sym(nm) := lubridate::format_ISO8601(.x, usetz = TRUE))
+    }
+  }), environment())
   stopifnot(methods::is(x, "googlecalendar"),
             is.list(start), is.list(end))
 
