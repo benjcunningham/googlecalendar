@@ -67,4 +67,3 @@ gc_summary("Sunsets") \%>\%
 }
 
 }
-

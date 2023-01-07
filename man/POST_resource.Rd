@@ -22,4 +22,3 @@ If request was successful, the API response. Otherwise, an
 Generalized POST method
 }
 \keyword{internal}
-

@@ -19,4 +19,3 @@ Status code of the API response.
 Generalized DELETE method
 }
 \keyword{internal}
-

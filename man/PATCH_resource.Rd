@@ -20,4 +20,3 @@ If request was successful, an invisible copy of the response.
 Generalized PATCH method
 }
 \keyword{internal}
-

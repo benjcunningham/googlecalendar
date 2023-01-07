@@ -55,4 +55,3 @@ gc_summary("Commitments", fixed = TRUE)
 }
 
 }
-
