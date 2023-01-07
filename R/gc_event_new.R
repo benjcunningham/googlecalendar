@@ -70,3 +70,51 @@ gc_event_new <- function(x, start, end, ..., sendNotifications = FALSE,
   invisible(event_out)
 
 }
+
+#' Event CSV Template
+#' @return \code{data.frame}
+#' @export
+gc_event_csv_template <- function(full = FALSE) {
+  if (!full)
+    structure(
+      list(
+        summary = c("Midterm", "Final Exam"),
+        start.dateTime = c("2016-09-20T15:00:00Z",
+                           "2016-09-21T15:00:00Z"),
+        end.dateTime = c("2016-09-20T16:00:00Z",
+                         "2016-09-21T18:00:00Z"),
+        description = c(
+          "25 multiple choice questions",
+          "50 multiple choice questions and two essay questions"
+        ),
+        location = c("S304 PBB",
+                     "W10 PBB")
+      ),
+      class = "data.frame",
+      row.names = c(NA, -2L)
+    )
+  else
+    structure(list(cid = NA, etag = NA, id = NA, status = NA, htmlLink = NA,
+                   created = NA, updated = NA, summary = NA, description = NA,
+                   location = NA, colorId = NA, creator.id = NA, creator.email = NA,
+                   creator.displayName = NA, creator.self = NA, organizer.id = NA,
+                   organizer.email = NA, organizer.displayName = NA, organizer.self = NA,
+                   start.date = NA, start.dateTime = NA, start.timeZone = NA,
+                   end.date = NA, end.dateTime = NA, end.timeZone = NA, endTimeUnspecified = NA,
+                   recurrence = NA, recurringEventId = NA, originalStartTime.date = NA,
+                   originalStartTime.dateTime = NA, originalStartTime.timeZone = NA,
+                   transparency = NA, visibility = NA, iCalUID = NA, sequence = NA,
+                   attendees.id = NA, attendees.email = NA, attendees.displayName = NA,
+                   attendees.organizer = NA, attendees.self = NA, attendees.resource = NA,
+                   attendees.optional = NA, attendees.responseStatus = NA, attendees.comment = NA,
+                   attendees.additionalGuests = NA, attendeesOmitted = NA, hangoutLink = NA,
+                   gadget.type = NA, gadget.title = NA, gadget.link = NA, gadget.iconLink = NA,
+                   gadget.width = NA, gadget.height = NA, gadget.display = NA,
+                   anyoneCanAddSelf = NA, guestsCanInviteOthers = NA, guestsCanModify = NA,
+                   guestsCanSeeOtherGuests = NA, privateCopy = NA, locked = NA,
+                   reminders.useDefault = NA, reminders.overrides.methods = NA,
+                   reminders.overrides.minutes = NA, source.url = NA, source.title = NA,
+                   attachments.fileUrl = NA, attachments.title = NA, attachments.mimeType = NA,
+                   attachments.iconLink = NA, attachments.fileId = NA), class = c("data.frame"), row.names = c(NA, -1L))
+
+}
