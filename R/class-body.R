@@ -1,6 +1,6 @@
 as.body <- function(x) UseMethod("as.body", x)
 
-as.body.data.frame <- function(x) {
+as.body.list <- as.body.data.frame <- function(x) {
 
   x <- unclass(x)
   b <- list()
